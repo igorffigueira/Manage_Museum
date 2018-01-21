@@ -25,10 +25,13 @@
             <p>@Html.ActionLink(linkText: "Approve Event", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })</p>
            @* <p>@Html.ActionLink(linkText: "Reject", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })</p>*@
         </div>
-        <hr />
-        <p>
-            @Html.ActionLink(linkText: "Back to List of Pending Events", actionName: "ShowRequestsList")
-        </p>
+        <div>
+            <hr />
+            <p>
+                @Html.ActionLink(linkText: "Back to List of Pending Events", actionName: "ShowRequestsList")
+            </p>
+        </div>
+        
     </div>
 
 
