@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "~/Views/Shared/_SpaceManagerSharedLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowRequestsList</title>
+</head>
+<body>
+<div class="container">
+    
+    
+    <table class="table table-hover">
+        <tr>
+            <th> # </th><th> Name </th><th> Type </th><th> Start Date </th><th> End Date </th><th> Event Number </th>
+        </tr>
+        
+        @foreach (var item in ViewBag.Data)
+        { 
+            <tr>
+                <td>@Html.ActionLink(linkText: "View Details", actionName: "EventRequestDetails", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                    |   @Html.ActionLink(linkText: "Approve", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                </td>
+                <td>@item.Name</td>
+                <td>@item.EventType.Name</td>
+                <td>@item.StartDate</td>
+                <td>@item.EnDate</td>
+                <td>@item.Id</td>
+            </tr>
+        }       
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "AttachPiece";
+    Layout = "~/Views/Shared/_ArtPieceManegerSharedLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+<div>
+    
+    <table class="table table-hover">
+        <tr>
+            <th>Art Piece Name</th>
+            <th>Art Piece Location</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Dimension</th>
+            <th>Description</th>
+        </tr>
+
+        @foreach (var item in ViewBag.Data)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.ArtPieceState.Name</td>
+                @*<td>@item.RoomMuseum.Name</td>*@                    @*DESCOMENTAR DEPOIS DE TER O ATRIBUTO NAME NA TABELA ROOMMUSEUM*@
+                <td>@item.Author</td>
+                <td>@item.Year</td>
+                <td>@item.Dimension</td>
+                <td>@item.Description</td>
+
+
+                @*<td>
+                @Html.ActionLink(linkText: "View Details", actionName: "EventRequestDetails", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+            |   @Html.ActionLink(linkText: "Approve", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+        </td>*@
+            </tr>
+        }
+
+    </table>
+
+    <p>
+        @Html.ActionLink("Insert New", "InsertArtPiece")
+    </p>
+    <p>
+        @Html.ActionLink("Remove Seleted Pieces", "RemovePiece")
+    </p>
+    <p>
+        @Html.ActionLink("Attach Art Pieces to one Exihibition", "AttachPiece")
+    </p>
+    <hr/><hr />
+
+    <p>
+        @Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
+    </p>
+</div>
+
+</body>
+</html>

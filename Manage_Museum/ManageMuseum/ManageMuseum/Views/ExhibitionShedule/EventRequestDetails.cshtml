@@ -1,0 +1,35 @@
+﻿@using ManageMuseum.Models
+@{
+    Layout = "~/Views/Shared/_SpaceManagerSharedLayout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EventRequestDetails</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h2> Event Number: @ViewData["EventSelected"]</h2>
+            <hr/>
+            <p>From User: (@ViewData["EventUserId"]) @ViewData["EventUserFName"] @ViewData["EventUserLName"]</p>
+            <h4>Name: @ViewData["EventName"]</h4>
+            <h4>Event Type: @ViewData["EventType"]</h4>
+            <h4>Start Date: @ViewData["EventStartDate"]</h4>
+            <h4>End Date: @ViewData["EventEndDate"]</h4>
+            <h4>Description: @ViewData["EventDescription"]</h4>
+        </div>
+        <div>
+            @Html.ActionLink(linkText: "Approve Event", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })
+        </div>
+        <hr />
+        <p>
+            @Html.ActionLink(linkText: "Back to List of Pending Events", actionName: "ShowRequestsList")
+        </p>
+    </div>
+
+
+        </body>
+        </html>

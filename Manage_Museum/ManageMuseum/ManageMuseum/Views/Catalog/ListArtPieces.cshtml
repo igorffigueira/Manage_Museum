@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_SpaceManagerSharedLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListArtPieces</title>
+    @Styles.Render("~/Content/OurCSS.css")
+</head>
+<body>
+    <div class="contain">
+        <h2> List of Art Pieces on Catalog</h2>
+
+        <table class="table table-hover table-responsive">
+            <tr>
+                <th> # </th>
+                <th>Art Piece Name</th>
+                <th>Art Piece State</th>
+                <th>Room</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Dimension</th>
+                <th>Description</th>
+            </tr>
+            @foreach (var item in @ViewBag.Data)
+            {
+                if (@item.ArtPieceState.Name == "armazem")
+                {
+
+                    <tr>
+                        <td class="table_td_center">
+                            @Html.ActionLink(linkText: "Attach to event", actionName: "AttachPiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)
+                        </td>
+                        <td class="table_td_center">@item.Name</td>
+                        <td class="table_td_center">@item.ArtPieceState.Name</td>
+                        <td class="table_td_center"> - </td>
+                        <td class="table_td_center">@item.Author</td>
+                        <td class="table_td_center">@item.Year</td>
+                        <td class="table_td_center">@item.Dimension</td>
+                        <td class="table_td_center">@item.Description</td>
+                    </tr>
+
+                }
+                if (@item.ArtPieceState.Name == "exposicao")
+                {
+                    <tr>
+                        <td class="table_td_center">@Html.ActionLink(linkText: "Remove form exihibition", actionName: "RemovePiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)</td>
+                        <td class="table_td_center">@item.Name</td>
+                        <td class="table_td_center">@item.ArtPieceState.Name</td>
+                        <td class="table_td_center">@item.RoomMuseum.Name</td>
+                        <td class="table_td_center">@item.Author</td>
+                        <td class="table_td_center">@item.Year</td>
+                        <td class="table_td_center">@item.Dimension</td>
+                        <td class="table_td_center">@item.Description</td>
+                    </tr>
+                }
+            }
+
+        </table>
+
+        <hr /><hr />
+
+        <p>@Html.ActionLink("Insert new Art Piece", "InsertArtPiece")</p>
+
+        <hr /><hr />
+
+        <p>@Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")</p>
+    </div>
+
+</body>
+</html>
