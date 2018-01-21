@@ -10,7 +10,7 @@
     <title>EventRequestDetails</title>
 </head>
 <body>
-    <div>
+    <div class="container">
         <div>
             <h2> Event Number: @ViewData["EventSelected"]</h2>
             <hr/>
@@ -22,7 +22,8 @@
             <h4>Description: @ViewData["EventDescription"]</h4>
         </div>
         <div>
-            @Html.ActionLink(linkText: "Approve Event", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })
+            <p>@Html.ActionLink(linkText: "Approve Event", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })</p>
+           @* <p>@Html.ActionLink(linkText: "Reject", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })</p>*@
         </div>
         <hr />
         <p>
@@ -31,5 +32,5 @@
     </div>
 
 
-        </body>
-        </html>
+</body>
+</html>

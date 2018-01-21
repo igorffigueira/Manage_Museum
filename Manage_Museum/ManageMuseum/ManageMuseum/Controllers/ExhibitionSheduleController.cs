@@ -86,5 +86,17 @@ namespace ManageMuseum.Controllers
 
             return View();
         }
+
+        public ActionResult EventRequestReject(string eventId)
+        {
+            var EventIdReject = Int32.Parse(eventId);
+
+            EventState rejectState = db.EventStates.First(d => d.Name == "rejeitado");
+
+            Event update = db.Events.Include(v => v.EventState).First(d => d.Id == EventIdReject);
+            update.EventState = rejectState;
+            db.SaveChanges();
+            return Redirect("ShowRequestsList");
+        }
     }
 }

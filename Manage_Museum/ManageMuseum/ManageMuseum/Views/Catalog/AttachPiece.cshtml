@@ -12,7 +12,7 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-<div>
+<div class="container">
     
     <table class="table table-hover">
         <tr>
@@ -44,21 +44,24 @@
         }
 
     </table>
-
-    <p>
-        @Html.ActionLink("Insert New", "InsertArtPiece")
-    </p>
-    <p>
-        @Html.ActionLink("Remove Seleted Pieces", "RemovePiece")
-    </p>
-    <p>
-        @Html.ActionLink("Attach Art Pieces to one Exihibition", "AttachPiece")
-    </p>
-    <hr/><hr />
-
-    <p>
-        @Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
-    </p>
+    <div>
+        <hr/>
+        <p>
+            @Html.ActionLink("Insert New", "InsertArtPiece")
+        </p>
+        <p>
+            @Html.ActionLink("Remove Seleted Pieces", "RemovePiece")
+        </p>
+        <p>
+            @Html.ActionLink("Attach Art Pieces to one Exihibition", "AttachPiece")
+        </p>
+    </div>
+    <div>
+        <hr />
+        <p>
+            @Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
+        </p>
+    </div>
 </div>
 
 </body>

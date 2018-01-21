@@ -12,7 +12,7 @@
     @Styles.Render("~/Content/OurCSS.css")
 </head>
 <body>
-    <div class="contain">
+    <div class="container">
         <h2> List of Art Pieces on Catalog</h2>
 
         <table class="table table-hover table-responsive">
@@ -63,12 +63,15 @@
         </table>
 
         <hr /><hr />
-
-        <p>@Html.ActionLink("Insert new Art Piece", "InsertArtPiece")</p>
-
-        <hr /><hr />
-
-        <p>@Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")</p>
+        <div>
+            <p>@Html.ActionLink("Insert new Art Piece", "InsertArtPiece")</p>
+        </div>
+        <div>
+            <hr />
+            <p>
+                 @Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
+            </p>
+        </div>
     </div>
 
 </body>

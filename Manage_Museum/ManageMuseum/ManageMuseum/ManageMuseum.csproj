@@ -233,6 +233,7 @@
     <Content Include="Views\Catalog\InsertArtPiece.cshtml" />
     <Content Include="Views\Catalog\ListArtPieces.cshtml" />
     <Content Include="Views\Catalog\RemovePiece.cshtml" />
+    <Content Include="Views\ExhibitionShedule\EventRequestReject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

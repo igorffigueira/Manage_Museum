@@ -15,7 +15,9 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-
+<h1> Formulário para Inserção de Eventos por parte de um Space Manager </h1>
+    <h5> Um Evento criado por um Space Manager fica automáticamente aprovado, não requer a aprovação por um Space Manager</h5>
+<br/><hr/>
 
 @using (Html.BeginForm())
 {
@@ -60,5 +62,11 @@
         </div>
     </form>
 }
+    <div>
+        <hr />
+        <p>
+            @*@Html.ActionLink(linkText: "Back to the #################3", actionName: "ShowRequestsList")*@
+        </p>
+    </div>
 </body>
 </html>
