@@ -138,3 +138,6 @@ C:\Users\topog\Source\Repos\ManageMuseum\ManageMuseum\ManageMuseum\obj\Debug\Man
 C:\Users\topog\Source\Repos\ManageMuseum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
 D:\Figueira\Documents\ManageMuseum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations._1st.resources
 D:\Figueira\Documents\ManageMuseum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csprojResolveAssemblyReference.cache
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.dll
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.pdb
