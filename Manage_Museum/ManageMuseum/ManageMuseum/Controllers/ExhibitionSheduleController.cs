@@ -33,7 +33,7 @@ namespace ManageMuseum.Controllers
                 listSpaces.Add(query);
             }
             var eventState = db.EventStates.Single(s=>s.Name == "poraprovar");
-            var eventType = db.EventState.Single(s => s.Name == "exposicao");
+            var eventType = db.EventTypes.Single(s => s.Name == "exposicao");
             var userId = Int32.Parse(Request.Cookies["UserId"].Value);
             var userAccont = db.UserAccounts.Single(s => s.Id == userId);
             var newEvent = new Event() { UserAccount = userAccont, Name = events.Name, EventState = eventState, EventType = eventType, Description = events.Description, StartDate = events.StartDate, EnDate = events.EnDate };
@@ -86,4 +86,3 @@ namespace ManageMuseum.Controllers
         }
     }
 }
-//var queryEventDetails = db.Events.Include(d => d.UserAccount).Include(d => d.EventState).Include(d => d.EventType).Where(s => s.Id == EventIdSelected).ToList();
