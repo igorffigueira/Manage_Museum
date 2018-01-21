@@ -60,7 +60,7 @@ namespace ManageMuseum.Controllers
 
 
 
-            return Content("hahahahaahahaha");
+            return Redirect("SheduleEvent");
         }
 
     }

@@ -16,9 +16,16 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @using (Html.BeginForm())
-    {
-        <div class="container">
+    <div class="container">
+
+        <br/><h2 style="text-align:justify"> Requisição de exposições </h2><br />
+        <hr/>
+        <h5 style="text-align: center"> A criação de uma requisição está sujeito a aprovação por parte de um gestor de espaços </h5>
+        <hr/>
+
+        @using (Html.BeginForm())
+        {
+
             <div class="form-container">
                 <div>
                     <label> Nome: </label>
@@ -38,20 +45,20 @@
 
                 <div class="form-group">
                     <label>Lista de Espaços </label>
-                   
-                   @Html.ListBoxFor(model => model.SpacesList, (SelectList)ViewBag.ListSpaces, new {Multiple = "multiple", @class = "form-control" })
+
+                    @Html.ListBoxFor(model => model.SpacesList, (SelectList)ViewBag.ListSpaces, new { Multiple = "multiple", size=12, @class = "form-control" })
                 </div>
 
-                <label >Descrição:</label>
-                @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", @rows = 5})
-                
+                <label>Descrição:</label>
+                @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", @rows = 5 })
+
 
                 <div>
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <br /><input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
+        }
+    </div>
 
-        </div>
-    }
 </body>
 </html>

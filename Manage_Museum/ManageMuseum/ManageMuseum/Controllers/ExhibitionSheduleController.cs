@@ -45,7 +45,7 @@ namespace ManageMuseum.Controllers
                 item.Event = newEvent;
             }
             db.SaveChanges();
-            return View();
+            return Redirect("SheduleExhibition");
         }
 
         public ActionResult ShowRequestsList()
