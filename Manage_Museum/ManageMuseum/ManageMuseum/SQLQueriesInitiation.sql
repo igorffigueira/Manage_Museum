@@ -11,6 +11,8 @@ Insert INTO EVENTTYPES(Name) VALUES ('social');
 Insert INTO EVENTSTATES(Name) VALUES ('poraprovar');
 Insert INTO EVENTSTATES(Name) VALUES ('exibicao');
 Insert INTO EVENTSTATES(Name) VALUES ('encerrado');
+Insert INTO EVENTSTATES(Name) VALUES ('aceites');
+Insert INTO EVENTSTATES(Name) VALUES ('rejeitado');
 
 Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2018-03-03 00:00:00.000','2018-02-04 00:00:00.000','Isto é uma descrição de evento','Palavras Solarentas','1','1','2');
 Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2018-03-01 00:00:00.000','2018-03-01 00:00:00.000','Isto é uma descrição de evento','Aniversário FNAC','2','1','3');
