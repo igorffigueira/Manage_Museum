@@ -17,14 +17,12 @@
 </head>
 <body>
 
+<br/><h1 style="text-align:justify"> Requisição de exposições </h1>    <h2>@TempData["dates"]</h2><hr/>
+<h4 style="text-align: center"> A criação de uma requisição está sujeito a aprovação por parte de um gestor de espaços </h4><hr/>
 <div class="container">
     @using (Html.BeginForm())
     {
 
-            <div class="form-container">
-                <div>
-                    <label> Nome: </label>
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
         <div class="form-container">
             <div>
                 <label> Nome: </label>
