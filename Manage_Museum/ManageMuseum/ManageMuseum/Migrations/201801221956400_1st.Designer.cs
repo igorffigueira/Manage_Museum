@@ -13,7 +13,7 @@ namespace ManageMuseum.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201801221658484_1st"; }
+            get { return "201801221956400_1st"; }
         }
         
         string IMigrationMetadata.Source

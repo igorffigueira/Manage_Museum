@@ -12,12 +12,11 @@ namespace ManageMuseum.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Description = c.String(),
+                        Name = c.String(nullable: false),
+                        Description = c.String(nullable: false),
                         Dimension = c.Double(nullable: false),
                         Year = c.DateTime(nullable: false),
-                        Author = c.String(),
-                        State = c.String(),
+                        Author = c.String(nullable: false),
                         ArtPieceState_Id = c.Int(),
                         RoomMuseum_Id = c.Int(),
                     })
