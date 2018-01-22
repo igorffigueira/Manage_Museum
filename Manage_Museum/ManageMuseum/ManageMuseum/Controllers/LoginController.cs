@@ -10,8 +10,6 @@ namespace ManageMuseum.Controllers
 {
     public class LoginController : Controller
     {
-        
-        
         // GET: Login
         public ActionResult ConfirmLogin()
         {
@@ -21,7 +19,6 @@ namespace ManageMuseum.Controllers
         [HttpPost]
         public ActionResult ConfirmLogin(UserAccount user)
         {
-           
             string userName = user.Username;
             string password = user.Password;
             
@@ -29,39 +26,49 @@ namespace ManageMuseum.Controllers
             {
                 var role = new UserManager().Role(userName, password);
                 var userId = new UserManager().GetId(userName, password);
-
+                
                 switch (role)
                 {
-                    case 1:
+                    case "spacemanager":
                     {
                         HttpCookie cookie = Request.Cookies["UserId"];
-                        if (cookie ==null)
+                        HttpCookie cookie1 = Request.Cookies["Role"];
+                        if (cookie ==null | cookie1 == null)
                         {
                             cookie = new HttpCookie("UserId");
+                            cookie1 = new HttpCookie("Role");
+                            cookie1.Value = role;
                             cookie.Value = userId.ToString();
                         }
                         else
                         {
                             cookie.Value = userId.ToString();
-                        }
+                            cookie1.Value = role;
+                            }
                         Response.Cookies.Add(cookie);
+                        Response.Cookies.Add(cookie1);
 
 
-                        return RedirectToAction("SheduleEvent", "SheduleEvent");
+                            return RedirectToAction("SheduleEvent", "SheduleEvent");
                         }
-                    case 2:
+                    case "artpiecemanager":
                         {
                             HttpCookie cookie = Request.Cookies["UserId"];
-                            if (cookie == null)
+                            HttpCookie cookie1 = Request.Cookies["Role"];
+                            if (cookie == null | cookie1 == null)
                             {
                                 cookie = new HttpCookie("UserId");
+                                cookie1 = new HttpCookie("Role");
+                                cookie1.Value = role;
                                 cookie.Value = userId.ToString();
                             }
                             else
                             {
                                 cookie.Value = userId.ToString();
+                                cookie1.Value = role;
                             }
                             Response.Cookies.Add(cookie);
+                            Response.Cookies.Add(cookie1);
                             return RedirectToAction("SheduleExhibition", "ExhibitionShedule");
                         }
                 }

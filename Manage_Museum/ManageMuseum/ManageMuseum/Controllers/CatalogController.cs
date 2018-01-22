@@ -11,8 +11,9 @@ namespace ManageMuseum.Controllers
 {
     public class CatalogController : Controller
     {
+        
+
         private OurContectDb db = new OurContectDb();
-        // GET: Catalog
         public ActionResult ListArtPieces()
         {
             var query = db.ArtPieces.Include(d => d.ArtPieceState).Include(v => v.RoomMuseum).ToList();

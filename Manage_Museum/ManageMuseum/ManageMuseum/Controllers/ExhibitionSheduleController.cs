@@ -25,27 +25,36 @@ namespace ManageMuseum.Controllers
             //var queryRooms = db.RoomMuseums.Include(d=>d.Event).Single(s => s.Name == events.RoomName);
             var queryListSpaces = db.RoomMuseums.ToList();
             ViewBag.ListSpaces = new SelectList(queryListSpaces, "Name", "Name");
-
-            var rooms = events.SpacesList;
-            var listSpaces = new List<RoomMuseum>();
-
-            foreach (var items in rooms)
+            var date = events.StartDate.CompareTo(events.EnDate);
+            if (date == 1)
             {
-                var query = db.RoomMuseums.Include(d => d.Event).Single(d => d.Name == items);
-                listSpaces.Add(query);
+                TempData["dates"] = " A data de fim do evento não pode anterior a data de inicio ";
+                return Redirect("SheduleExhibition");
             }
-            var eventState = db.EventStates.Single(s=>s.Name == "poraprovar");
-            var eventType = db.EventTypes.Single(s => s.Name == "exposicao");
-            var userId = Int32.Parse(Request.Cookies["UserId"].Value);
-            var userAccont = db.UserAccounts.Single(s => s.Id == userId);
-            var newEvent = new Event() { UserAccount = userAccont, Name = events.Name, EventState = eventState, EventType = eventType, Description = events.Description, StartDate = events.StartDate, EnDate = events.EnDate };
-
-            foreach (var item in listSpaces)
+            else
             {
-                item.Event = newEvent;
+                var rooms = events.SpacesList;
+                var listSpaces = new List<RoomMuseum>();
+
+                foreach (var items in rooms)
+                {
+                    var query = db.RoomMuseums.Include(d => d.Event).Single(d => d.Name == items);
+                    listSpaces.Add(query);
+                }
+                var eventState = db.EventStates.Single(s => s.Name == "poraprovar");
+                var eventType = db.EventTypes.Single(s => s.Name == "exposicao");
+                var userId = Int32.Parse(Request.Cookies["UserId"].Value);
+                var userAccont = db.UserAccounts.Single(s => s.Id == userId);
+                var newEvent = new Event() { UserAccount = userAccont, Name = events.Name, EventState = eventState, EventType = eventType, Description = events.Description, StartDate = events.StartDate, EnDate = events.EnDate };
+
+                foreach (var item in listSpaces)
+                {
+                    item.Event = newEvent;
+                }
+                db.SaveChanges();
+                return Redirect("SheduleExhibition");
             }
-            db.SaveChanges();
-            return Redirect("SheduleExhibition");
+            
         }
 
         public ActionResult ShowRequestsList()
