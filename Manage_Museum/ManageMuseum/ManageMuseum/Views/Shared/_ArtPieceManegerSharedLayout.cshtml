@@ -23,9 +23,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <span class="visible-xs navbar-brand">Sidebar menu</span>
+                        <span class="visible-xs navbar-brand">Art Piece Manager</span>
                     </div>
-                    <div class="navbar-collapse collapse">@* Removi está class nao estava a ser reconhecida pelo CSS "sidebar-navbar-collapse" *@
+                    <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav" id="sidenav01">
                             <li class="active">
                                 <a href="@Url.Action("Index","Home")" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
@@ -37,29 +37,29 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
+                                <a href="#" class="collapsed">
                                     <span class="glyphicon glyphicon-map-marker"></span> Ver Mapa <span class="caret pull-right"></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="@Url.Action("ListArtPieces", "Catalog")">
-                                    <span class="glyphicon glyphicon-list-alt"></span> Gerir Catálogo
+                                    <span class="glyphicon glyphicon-list-alt"></span> Gerir Catálogo <span class="caret pull-right"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="@Url.Action("SheduleExhibition","ExhibitionShedule")" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
+                                <a href="@Url.Action("SheduleExhibition","ExhibitionShedule")" class="collapsed">
                                     <span class="glyphicon glyphicon-calendar"></span> Requisitar Exposição <span class="caret pull-right"></span>
                                 </a>
 
                             </li>
                             <li>
                                 <a href="@Url.Action("ApprovedExhibition", "SheduleEvent")">
-                                    <span class="glyphicon glyphicon-ok"></span> Exposições Aprovadas
+                                    <span class="glyphicon glyphicon-ok"></span> Exposições Aprovadas <span class="caret pull-right"></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="@Url.Action("ConfirmLogin", "Login")">
-                                    <span class="glyphicon glyphicon-log-out"></span> LogOut
+                                    <span class="glyphicon glyphicon-log-out"></span> LogOut <span class="caret pull-right"></span>
                                 </a>
                             </li>
                         </ul>
