@@ -12,9 +12,14 @@
     @Styles.Render("~/Content/OurCSS.css")
 </head>
 <body>
+    <br/><h1 style="text-align:justify"> List of Art Pieces on Catalog</h1><hr/>
+    <h4 style="text-align: center"> Poderá introduzir uma nova peça ao catálogo, remover uma peça de um evento e colocá-la em armazém ou ainda colocar numa sala de um evento  </h4><hr />
     <div class="container">
-        <h2> List of Art Pieces on Catalog</h2>
-
+        <div>
+            <hr/>
+            <p style="text-align: center">@Html.ActionLink("Insert new Art Piece", "InsertArtPiece")</p>
+            <hr />
+        </div>
         <table class="table table-hover table-responsive">
             <tr>
                 <th> # </th>
@@ -61,17 +66,12 @@
             }
 
         </table>
-
-        <hr /><hr />
-        <div>
-            <p>@Html.ActionLink("Insert new Art Piece", "InsertArtPiece")</p>
-        </div>
-        <div>
-            <hr />
-            <p>
-                 @Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
-            </p>
-        </div>
+    </div>
+    <div>
+        <hr class="hrStyle">
+        <p>
+            @Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
+        </p><br/>
     </div>
 
 </body>

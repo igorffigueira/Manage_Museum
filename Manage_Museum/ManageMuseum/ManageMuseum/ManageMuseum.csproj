@@ -226,14 +226,12 @@
     <Content Include="Views\Login\ConfirmLogin.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\ExhibitionShedule\ShowRequestsList.cshtml" />
-    <Content Include="Views\ExhibitionShedule\EventRequestApprove.cshtml" />
     <Content Include="Views\ExhibitionShedule\EventRequestDetails.cshtml" />
     <Content Include="Views\SheduleEvent\ApprovedExhibition.cshtml" />
     <Content Include="Views\Catalog\AttachPiece.cshtml" />
     <Content Include="Views\Catalog\InsertArtPiece.cshtml" />
     <Content Include="Views\Catalog\ListArtPieces.cshtml" />
     <Content Include="Views\Catalog\RemovePiece.cshtml" />
-    <Content Include="Views\ExhibitionShedule\EventRequestReject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

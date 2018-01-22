@@ -10,9 +10,8 @@
     <title>ShowRequestsList</title>
 </head>
 <body>
-<h1> Lista de eventos do tipo exposição para aprovação por um Space Manager </h1>
-<h5> Um Evento requisitado por um Art Piece Manager é comunicado aos Space Managers para a sua aprovação</h5>
-<br/><hr/>
+<br/><h1 style="text-align:justify"> Lista de eventos do tipo exposição para aprovação por um Space Manager </h1><hr/>
+<h4 style="text-align: center"> Um Evento requisitado por um Art Piece Manager é comunicado aos Space Managers para a sua aprovação</h4><hr/>
 <div class="container">
     <table class="table table-hover">
         <tr>
@@ -25,7 +24,7 @@
                 <td>
                     @Html.ActionLink(linkText: "View Details", actionName: "EventRequestDetails", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
                     | @Html.ActionLink(linkText: "Approve", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
-                    @*| @Html.ActionLink(linkText: "Reject", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)*@
+                    | @Html.ActionLink(linkText: "Reject", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
                 </td>
                 <td>@item.Name</td>
                 <td>@item.EventType.Name</td>
@@ -35,12 +34,13 @@
             </tr>
         }
     </table>
-    <div>
-        <hr />
-        <p>
-            @*@Html.ActionLink(linkText: "Back to the #################3", actionName: "ShowRequestsList")*@
-        </p>
-    </div>
+    
+</div>
+<div>
+    <hr class="hrStyle">
+    <p>
+        @*@Html.ActionLink(linkText: "Back to the #################3", actionName: "ShowRequestsList")*@
+    </p>
 </div>
 </body>
 </html>

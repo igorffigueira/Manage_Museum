@@ -15,11 +15,10 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-<div class="container">
-    <h1> Formulário para Inserção de Eventos por parte de um Space Manager </h1>
-    <h5> Um Evento criado por um Space Manager fica automáticamente aprovado, não requer a aprovação por um Space Manager</h5>
-    <br/><hr/>
 
+<br/><h1 style="text-align:justify"> Formulário para Inserção de Eventos por parte de um Space Manager </h1><hr/>
+<h4 style="text-align: center"> Um Evento criado por um Space Manager fica automáticamente aprovado, não requer a aprovação por um Space Manager</h4><hr/>
+<div class="container">
     @using (Html.BeginForm())
     {
         <form>
@@ -53,19 +52,19 @@
 
                 <label>Descrição:</label>
                 @Html.TextAreaFor(model => model.Description, htmlAttributes: new {@class = "form-control", @rows = 5})
-
+                <br/>
                 <div>
                     <input type="submit" value="Create" class="btn btn-default"/>
                 </div>
             </div>
         </form>
     }
-    <div>
-        <hr/>
-        <p>
-            @*@Html.ActionLink(linkText: "Back to the #################3", actionName: "ShowRequestsList")*@
-        </p>
-    </div>
+</div>
+<div>
+    <hr class="hrStyle">
+    <p>
+        @*@Html.ActionLink(linkText: "Back to the #################3", actionName: "ShowRequestsList")*@
+    </p>
 </div>
 </body>
 </html>
