@@ -14,6 +14,8 @@ namespace ManageMuseum.Controllers
         
 
         private OurContectDb db = new OurContectDb();
+
+        
         public ActionResult ListArtPieces()
         {
             var query = db.ArtPieces.Include(d => d.ArtPieceState).Include(v => v.RoomMuseum).ToList();
