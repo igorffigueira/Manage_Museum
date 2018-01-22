@@ -127,10 +127,14 @@
     }
 }
 
-
 .table_td_center {
-    text-align: center;
+    text-align: center; 
     vertical-align: middle;
+}
+
+
+.table_td_center_justify {
+    text-align: justify;
 }
 
 .hrStyle { 
