@@ -24,14 +24,14 @@ namespace ManageMuseum.Controllers
             //var queryRooms = db.RoomMuseums.Include(d=>d.Event).Single(s => s.Name == events.RoomName);
             var queryListSpaces = db.RoomMuseums.ToList();
             ViewBag.ListSpaces = new SelectList(queryListSpaces, "Name", "Name");
-            var date = events.StartDate.CompareTo(events.EnDate);
-            if (date == 1)
-            {
-                TempData["dates"] = " A data de fim do evento não pode anterior a data de inicio ";
-                return Redirect("SheduleExhibition");
-            }
-            else
-            {
+            //var date = events.StartDate.CompareTo(events.EnDate);
+            //if (date == 1)
+            //{
+            //    TempData["dates"] = " A data de fim do evento não pode anterior a data de inicio ";
+            //    return Redirect("SheduleExhibition");
+            //}
+            //else
+            //{
                 var rooms = events.SpacesList;
                 var listSpaces = new List<RoomMuseum>();
 
@@ -52,7 +52,7 @@ namespace ManageMuseum.Controllers
                 }
                 db.SaveChanges();
                 return Redirect("SheduleExhibition");
-            }
+            //}
             
         }
 
