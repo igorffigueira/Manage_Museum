@@ -11,6 +11,7 @@ namespace ManageMuseum.Models
         [Key]
         public int Id { get; set; }//number of the room
         public string Name { get; set; }
+        public SpaceState SpaceState { get; set; } // State of the room free or busy
         public double Area { get; set; }
         public int Floor { get; set; }
         public Event Event { get; set; }

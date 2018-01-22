@@ -231,8 +231,8 @@ D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\Microsoft.AI.WindowsServer.xml
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\Microsoft.AI.Web.xml
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csprojResolveAssemblyReference.cache
-D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations._1st.resources
-D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.CoreCompileInputs.cache
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.dll
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.pdb
+D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations._1st.resources
+D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache

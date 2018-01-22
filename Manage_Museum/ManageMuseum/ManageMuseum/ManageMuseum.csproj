@@ -160,9 +160,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801210311254_1st.cs" />
-    <Compile Include="Migrations\201801210311254_1st.Designer.cs">
-      <DependentUpon>201801210311254_1st.cs</DependentUpon>
+    <Compile Include="Migrations\201801221452327_1st.cs" />
+    <Compile Include="Migrations\201801221452327_1st.Designer.cs">
+      <DependentUpon>201801221452327_1st.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArtPiece.cs" />
@@ -176,6 +176,7 @@
     <Compile Include="Models\OutSideSpace.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoomMuseum.cs" />
+    <Compile Include="Models\SpaceState.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -250,8 +251,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801210311254_1st.resx">
-      <DependentUpon>201801210311254_1st.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801221452327_1st.resx">
+      <DependentUpon>201801221452327_1st.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
