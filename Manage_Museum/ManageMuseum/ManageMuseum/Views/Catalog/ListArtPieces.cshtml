@@ -20,16 +20,16 @@
             <p style="text-align: center">@Html.ActionLink("Insert new Art Piece", "InsertArtPiece")</p>
             <hr />
         </div>
-        <table class="table table-hover table-responsive">
+        <table class="table table-hover table-responsive all_Table">
             <tr>
-                <th> # </th>
-                <th>Art Piece Name</th>
-                <th>Art Piece State</th>
-                <th>Room</th>
-                <th>Author</th>
-                <th>Year</th>
-                <th>Dimension</th>
-                <th>Description</th>
+                <th style="text-align: center"> # </th>
+                <th style="text-align: center">Art Piece Name</th>
+                <th style="text-align: center">Art Piece State</th>
+                <th style="text-align: center">Room</th>
+                <th style="text-align: center">Author</th>
+                <th style="text-align: center">Year</th>
+                <th style="text-align: center">Dimension</th>
+                <th style="text-align: center">Description</th>
             </tr>
             @foreach (var item in @ViewBag.Data)
             {
@@ -40,13 +40,13 @@
                         <td class="table_td_center">
                             @Html.ActionLink(linkText: "Attach to event", actionName: "AttachPiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)
                         </td>
-                        <td class="table_td_center">@item.Name</td>
-                        <td class="table_td_center">@item.ArtPieceState.Name</td>
-                        <td class="table_td_center"> - </td>
-                        <td class="table_td_center">@item.Author</td>
-                        <td class="table_td_center">@item.Year</td>
-                        <td class="table_td_center">@item.Dimension</td>
-                        <td class="table_td_center">@item.Description</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Name</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.ArtPieceState.Name</td>
+                        <td style="text-align: center; vertical-align: middle;"> - </td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Author</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Year</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Dimension</td>
+                        <td class="table_td_center_justify">@item.Description</td>
                     </tr>
 
                 }
@@ -60,7 +60,7 @@
                         <td class="table_td_center">@item.Author</td>
                         <td class="table_td_center">@item.Year</td>
                         <td class="table_td_center">@item.Dimension</td>
-                        <td class="table_td_center">@item.Description</td>
+                        <td class="table_td_center_justify">@item.Description</td>
                     </tr>
                 }
             }
