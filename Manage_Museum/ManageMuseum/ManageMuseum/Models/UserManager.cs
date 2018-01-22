@@ -18,12 +18,12 @@ namespace ManageMuseum.Models
             }
         }
 
-        public int Role(string name, string password)
+        public string Role(string name, string password)
         {
          
                 using (var db = new OurContectDb())
                 {
-                    return db.UserAccounts.Where(u => u.Username == name && u.Password == password).Select(p => p.Role).First().Id;
+                    return db.UserAccounts.Where(u => u.Username == name && u.Password == password).Select(p => p.Role).First().Name;
 
                 }
             

@@ -167,6 +167,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArtPiece.cs" />
     <Compile Include="Models\ArtPieceState.cs" />
+    <Compile Include="Models\CustomAuthorizeAttribute.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventState.cs" />
     <Compile Include="Models\EventType.cs" />
