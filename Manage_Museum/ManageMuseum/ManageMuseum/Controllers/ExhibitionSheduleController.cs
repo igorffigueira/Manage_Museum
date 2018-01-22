@@ -25,7 +25,11 @@ namespace ManageMuseum.Controllers
             //var queryRooms = db.RoomMuseums.Include(d=>d.Event).Single(s => s.Name == events.RoomName);
             var queryListSpaces = db.RoomMuseums.ToList();
             ViewBag.ListSpaces = new SelectList(queryListSpaces, "Name", "Name");
-
+            var date = events.StartDate.CompareTo(events.EnDate);
+            if (date == 1)
+            {
+                return Content("a data de fim não pode ser menor do que a nada de inicio");
+            }
             var rooms = events.SpacesList;
             var listSpaces = new List<RoomMuseum>();
 
