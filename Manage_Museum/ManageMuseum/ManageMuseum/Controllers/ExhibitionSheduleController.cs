@@ -28,28 +28,33 @@ namespace ManageMuseum.Controllers
             var date = events.StartDate.CompareTo(events.EnDate);
             if (date == 1)
             {
-                return Content("a data de fim não pode ser menor do que a nada de inicio");
+                TempData["dates"] = " A data de fim do evento não pode anterior a data de inicio ";
+                return Redirect("SheduleExhibition");
             }
-            var rooms = events.SpacesList;
-            var listSpaces = new List<RoomMuseum>();
-
-            foreach (var items in rooms)
+            else
             {
-                var query = db.RoomMuseums.Include(d => d.Event).Single(d => d.Name == items);
-                listSpaces.Add(query);
-            }
-            var eventState = db.EventStates.Single(s=>s.Name == "poraprovar");
-            var eventType = db.EventTypes.Single(s => s.Name == "exposicao");
-            var userId = Int32.Parse(Request.Cookies["UserId"].Value);
-            var userAccont = db.UserAccounts.Single(s => s.Id == userId);
-            var newEvent = new Event() { UserAccount = userAccont, Name = events.Name, EventState = eventState, EventType = eventType, Description = events.Description, StartDate = events.StartDate, EnDate = events.EnDate };
+                var rooms = events.SpacesList;
+                var listSpaces = new List<RoomMuseum>();
 
-            foreach (var item in listSpaces)
-            {
-                item.Event = newEvent;
+                foreach (var items in rooms)
+                {
+                    var query = db.RoomMuseums.Include(d => d.Event).Single(d => d.Name == items);
+                    listSpaces.Add(query);
+                }
+                var eventState = db.EventStates.Single(s => s.Name == "poraprovar");
+                var eventType = db.EventTypes.Single(s => s.Name == "exposicao");
+                var userId = Int32.Parse(Request.Cookies["UserId"].Value);
+                var userAccont = db.UserAccounts.Single(s => s.Id == userId);
+                var newEvent = new Event() { UserAccount = userAccont, Name = events.Name, EventState = eventState, EventType = eventType, Description = events.Description, StartDate = events.StartDate, EnDate = events.EnDate };
+
+                foreach (var item in listSpaces)
+                {
+                    item.Event = newEvent;
+                }
+                db.SaveChanges();
+                return Redirect("SheduleExhibition");
             }
-            db.SaveChanges();
-            return Redirect("SheduleExhibition");
+            
         }
 
         public ActionResult ShowRequestsList()
