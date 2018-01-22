@@ -45,10 +45,13 @@ namespace ManageMuseum.Migrations
                         Area = c.Double(nullable: false),
                         Floor = c.Int(nullable: false),
                         Event_Id = c.Int(),
+                        SpaceState_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Events", t => t.Event_Id)
-                .Index(t => t.Event_Id);
+                .ForeignKey("dbo.SpaceStates", t => t.SpaceState_Id)
+                .Index(t => t.Event_Id)
+                .Index(t => t.SpaceState_Id);
             
             CreateTable(
                 "dbo.Events",
@@ -126,10 +129,20 @@ namespace ManageMuseum.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
+            CreateTable(
+                "dbo.SpaceStates",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.RoomMuseums", "SpaceState_Id", "dbo.SpaceStates");
             DropForeignKey("dbo.UserAccounts", "Role_Id", "dbo.Roles");
             DropForeignKey("dbo.Events", "UserAccount_Id", "dbo.UserAccounts");
             DropForeignKey("dbo.RoomMuseums", "Event_Id", "dbo.Events");
@@ -143,9 +156,11 @@ namespace ManageMuseum.Migrations
             DropIndex("dbo.Events", new[] { "UserAccount_Id" });
             DropIndex("dbo.Events", new[] { "EventType_Id" });
             DropIndex("dbo.Events", new[] { "EventState_Id" });
+            DropIndex("dbo.RoomMuseums", new[] { "SpaceState_Id" });
             DropIndex("dbo.RoomMuseums", new[] { "Event_Id" });
             DropIndex("dbo.ArtPieces", new[] { "RoomMuseum_Id" });
             DropIndex("dbo.ArtPieces", new[] { "ArtPieceState_Id" });
+            DropTable("dbo.SpaceStates");
             DropTable("dbo.Roles");
             DropTable("dbo.UserAccounts");
             DropTable("dbo.OutSideSpaces");

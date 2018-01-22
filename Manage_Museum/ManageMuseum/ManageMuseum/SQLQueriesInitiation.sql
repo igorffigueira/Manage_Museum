@@ -21,18 +21,21 @@ Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_
 Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2018-02-03 00:00:00.000','2018-02-04 00:00:00.000','Isto é uma descrição de evento','Segunda Guerra Mundial','1','3','2');
 Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2017-12-03 00:00:00.000','2017-01-01 00:00:00.000','Isto é uma descrição de evento','Concerto do Panda','2','3','3');
 
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('4000','1','1','Sala Funchal');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('2700','1','1','Sala Câmara de Lobos');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('3500','1','2','sala Ribeira Brava');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('4000','2','2','Sala Ponta de Sol');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('2700','2','3','Sala Calheta');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('3500','2','3','sala Porto Moniz');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('4000','1','4','Sala São Vicente');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('2700','1','4','Sala Santana');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('3500','1','5','sala Machico');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('4000','2','5','Sala Santa Cruz');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('2700','2','6','Sala Porto Santo');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name) VALUES ('3500','2','6','sala Desertas');
+Insert INTO SPACESTATES(Name) VALUES ('livre');
+Insert INTO SPACESTATES(Name) VALUES ('ocupada');
+
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('4000','1','1','Sala Funchal','1');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('2700','1','1','Sala Câmara de Lobos','1');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('3500','1','2','sala Ribeira Brava','1');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('4000','2','2','Sala Ponta de Sol','1');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('2700','2','3','Sala Calheta','1');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('3500','2','3','sala Porto Moniz','1');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('4000','1','4','Sala São Vicente','2');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('2700','1','4','Sala Santana','2');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('3500','1','5','sala Machico','2');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('4000','2','5','Sala Santa Cruz','2');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('2700','2','6','Sala Porto Santo','2');
+Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('3500','2','6','sala Desertas','2');
 
 Insert INTO OUTSIDESPACES(Event_Id) VALUES ('2');
 

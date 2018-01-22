@@ -16,12 +16,20 @@ namespace ManageMuseum.Controllers
         // GET: SheduleEvent
         public ActionResult SheduleEvent()
         {
-            
-
+            var now = DateTime.Now.Date;
+            var exihibitionEvent = db.EventStates.First(d => d.Name == "exibicao");
+            var events = db.Events.Include(d=>d.EventState).Where(d => d.EnDate < now && d.EventState.Id == exihibitionEvent.Id).ToList();
+            var endEvent = db.EventStates.First(d => d.Name == "encerrado");
+            foreach (var evento in events)
+            {
+                evento.EventState = endEvent;
+                db.SaveChanges();
+            }
+            db.SaveChanges();
             var queryEventTypes = db.EventTypes.ToList();
             ViewBag.EventType = new SelectList(queryEventTypes,"Name","Name");
-
-            var queryListSpaces = db.RoomMuseums.ToList();
+            var roomFree = db.SpaceStates.First(d => d.Name == "livre");
+            var queryListSpaces = db.RoomMuseums.Where(d=>d.SpaceState.Name == roomFree.Name).ToList();
             ViewBag.ListSpaces = new SelectList(queryListSpaces,"Id","Id");
 
             return View();

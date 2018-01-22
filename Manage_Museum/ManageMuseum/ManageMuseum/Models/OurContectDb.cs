@@ -18,5 +18,6 @@ namespace ManageMuseum.Models
         public DbSet<RoomMuseum> RoomMuseums { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<ArtPieceState> ArtPieceStates { get; set; }
-}
+        public DbSet<SpaceState> SpaceStates { get; set; }
+    }
 }
