@@ -14,7 +14,8 @@ namespace ManageMuseum.Controllers
         // GET: ExhibitionShedule
         public ActionResult SheduleExhibition()
         {
-            var queryListSpaces = db.RoomMuseums.ToList();
+            var roomFree = db.SpaceStates.First(d => d.Name == "livre");
+            var queryListSpaces = db.RoomMuseums.Where(d => d.SpaceState.Name == roomFree.Name).ToList();
             ViewBag.ListSpaces = new SelectList(queryListSpaces, "Name", "Name");
             return View();
         }

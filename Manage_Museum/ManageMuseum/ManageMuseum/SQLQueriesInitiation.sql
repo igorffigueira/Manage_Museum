@@ -14,30 +14,38 @@ Insert INTO EVENTSTATES(Name) VALUES ('encerrado');
 Insert INTO EVENTSTATES(Name) VALUES ('aceites');
 Insert INTO EVENTSTATES(Name) VALUES ('rejeitado');
 
-Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2018-03-03 00:00:00.000','2018-02-04 00:00:00.000','Isto é uma descrição de evento','Palavras Solarentas','1','1','2');
-Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2018-03-01 00:00:00.000','2018-03-01 00:00:00.000','Isto é uma descrição de evento','Aniversário FNAC','2','1','3');
-Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2018-01-18 00:00:00.000','2018-03-18 00:00:00.000','Isto é uma descrição de evento','Feira da Maxmat','1','2','3');
-Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2018-01-03 00:00:00.000','2018-02-04 00:00:00.000','Isto é uma descrição de evento','Encontro de Universitarios','2','2','2');
-Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2018-02-03 00:00:00.000','2018-02-04 00:00:00.000','Isto é uma descrição de evento','Segunda Guerra Mundial','1','3','2');
-Insert INTO EVENTS(StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('2017-12-03 00:00:00.000','2017-01-01 00:00:00.000','Isto é uma descrição de evento','Concerto do Panda','2','3','3');
+Insert INTO EVENTS(SumArtPieces,StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('0','2018-03-03 00:00:00.000','2018-02-04 00:00:00.000','Isto é uma descrição de evento','Palavras Solarentas','1','1','2');
+Insert INTO EVENTS(SumArtPieces,StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('0','2018-03-01 00:00:00.000','2018-03-01 00:00:00.000','Isto é uma descrição de evento','Aniversário FNAC','2','1','3');
+Insert INTO EVENTS(SumArtPieces,StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('0','2018-01-18 00:00:00.000','2018-03-18 00:00:00.000','Isto é uma descrição de evento','Feira da Maxmat','1','2','3');
+Insert INTO EVENTS(SumArtPieces,StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('0','2018-01-03 00:00:00.000','2018-02-04 00:00:00.000','Isto é uma descrição de evento','Encontro de Universitarios','2','2','2');
+Insert INTO EVENTS(SumArtPieces,StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('0','2018-02-03 00:00:00.000','2018-02-04 00:00:00.000','Isto é uma descrição de evento','Segunda Guerra Mundial','1','3','2');
+Insert INTO EVENTS(SumArtPieces,StartDate,EnDate, Description,Name, EventType_Id, EventState_Id, UserAccount_Id) VALUES ('0','2017-12-03 00:00:00.000','2017-01-01 00:00:00.000','Isto é uma descrição de evento','Concerto do Panda','2','3','3');
 
 Insert INTO SPACESTATES(Name) VALUES ('livre');
 Insert INTO SPACESTATES(Name) VALUES ('ocupada');
 
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('4000','1','1','Sala Funchal','1');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('2700','1','1','Sala Câmara de Lobos','1');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('3500','1','2','sala Ribeira Brava','1');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('4000','2','2','Sala Ponta de Sol','1');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('2700','2','3','Sala Calheta','1');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('3500','2','3','sala Porto Moniz','1');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('4000','1','4','Sala São Vicente','2');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('2700','1','4','Sala Santana','2');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('3500','1','5','sala Machico','2');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('4000','2','5','Sala Santa Cruz','2');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('2700','2','6','Sala Porto Santo','2');
-Insert INTO ROOMMUSEUMS(Area,Floor,Event_Id,Name,SpaceState_Id) VALUES ('3500','2','6','sala Desertas','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','1','Sala Funchal','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','1','Sala Câmara de Lobos','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','2','sala Ribeira Brava','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','2','Sala Ponta de Sol','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','3','Sala Calheta','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','3','sala Porto Moniz','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','4','Sala São Vicente','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','4','Sala Santana','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','5','sala Machico','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','5','Sala Santa Cruz','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','6','Sala Porto Santo','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','6','sala Desertas','2');
 
-Insert INTO OUTSIDESPACES(Event_Id) VALUES ('2');
+Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim do Labirinto','20000','1','2');
+Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim do Pinheiro','7000','1','2');
+Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim Laurisilva','14000','1','2');
+Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim do Eucalipto','13000','1','2');
+Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim do Urzal','10000','1','2');
+Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim do Castanheiro','7000','1','2');
+Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim das Orquideas','14000','1','2');
+Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim do Louro','27000','1','2');
+
 
 Insert INTO ARTPIECESTATES(Name) VALUES ('armazem');
 Insert INTO ARTPIECESTATES(Name) VALUES ('exposicao');
