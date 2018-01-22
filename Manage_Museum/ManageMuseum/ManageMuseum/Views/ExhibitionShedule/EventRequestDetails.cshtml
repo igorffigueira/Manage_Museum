@@ -10,6 +10,8 @@
     <title>EventRequestDetails</title>
 </head>
 <body>
+    <br/><h1 style="text-align:justify"> Titulo </h1><hr/>
+    <h4 style="text-align: center"> SubTitulo </h4><hr/>
     <div class="container">
         <div>
             <h2> Event Number: @ViewData["EventSelected"]</h2>
@@ -20,20 +22,18 @@
             <h4>Start Date: @ViewData["EventStartDate"]</h4>
             <h4>End Date: @ViewData["EventEndDate"]</h4>
             <h4>Description: @ViewData["EventDescription"]</h4>
+            <hr/>
         </div>
         <div>
-            <p>@Html.ActionLink(linkText: "Approve Event", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })</p>
-           @* <p>@Html.ActionLink(linkText: "Reject", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })</p>*@
-        </div>
-        <div>
-            <hr />
-            <p>
-                @Html.ActionLink(linkText: "Back to List of Pending Events", actionName: "ShowRequestsList")
-            </p>
-        </div>
-        
+            <p>@Html.ActionLink(linkText: "Approve Event", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new {eventId = @ViewData["EventSelected"]}, htmlAttributes: new {@class = "btn"})   |   @Html.ActionLink(linkText: "Reject Event", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })</p>
+        </div> 
     </div>
-
+    <div>
+        <hr class="hrStyle">
+        <p>
+            @Html.ActionLink(linkText: "Back to List of Pending Events", actionName: "ShowRequestsList")
+        </p>
+    </div>
 
 </body>
 </html>

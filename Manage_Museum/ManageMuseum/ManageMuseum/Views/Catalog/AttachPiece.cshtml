@@ -12,55 +12,58 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-<div class="container">
-    
-    <table class="table table-hover">
-        <tr>
-            <th>Art Piece Name</th>
-            <th>Art Piece Location</th>
-            <th>Author</th>
-            <th>Year</th>
-            <th>Dimension</th>
-            <th>Description</th>
-        </tr>
+    <br/><h1 style="text-align:justify"> Titulo </h1><hr/>
+    <h4 style="text-align: center"> SubTitulo </h4><hr/>
 
-        @foreach (var item in ViewBag.Data)
-        {
+    <div class="container">
+
+        <table class="table table-hover">
             <tr>
-                <td>@item.Name</td>
-                <td>@item.ArtPieceState.Name</td>
-                @*<td>@item.RoomMuseum.Name</td>*@                    @*DESCOMENTAR DEPOIS DE TER O ATRIBUTO NAME NA TABELA ROOMMUSEUM*@
-                <td>@item.Author</td>
-                <td>@item.Year</td>
-                <td>@item.Dimension</td>
-                <td>@item.Description</td>
-                @*<td>
-                    @Html.ActionLink(linkText: "View Details", actionName: "EventRequestDetails", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
-                |   @Html.ActionLink(linkText: "Approve", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
-                </td>*@
+                <th>Art Piece Name</th>
+                <th>Art Piece Location</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Dimension</th>
+                <th>Description</th>
             </tr>
-        }
 
-    </table>
-    <div>
-        <hr/>
-        <p>
-            @Html.ActionLink("Insert New", "InsertArtPiece")
-        </p>
-        <p>
-            @Html.ActionLink("Remove Seleted Pieces", "RemovePiece")
-        </p>
-        <p>
-            @Html.ActionLink("Attach Art Pieces to one Exihibition", "AttachPiece")
-        </p>
+            @foreach (var item in ViewBag.Data)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.ArtPieceState.Name</td>
+                    @*<td>@item.RoomMuseum.Name</td>*@ @*DESCOMENTAR DEPOIS DE TER O ATRIBUTO NAME NA TABELA ROOMMUSEUM*@
+                    <td>@item.Author</td>
+                    <td>@item.Year</td>
+                    <td>@item.Dimension</td>
+                    <td>@item.Description</td>
+                    @*<td>
+                        @Html.ActionLink(linkText: "View Details", actionName: "EventRequestDetails", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                    |   @Html.ActionLink(linkText: "Approve", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                    </td>*@
+                </tr>
+            }
+
+        </table>
+        <div>
+            <hr/>
+            <p>
+                @Html.ActionLink("Insert New", "InsertArtPiece")
+            </p>
+            <p>
+                @Html.ActionLink("Remove Seleted Pieces", "RemovePiece")
+            </p>
+            <p>
+                @Html.ActionLink("Attach Art Pieces to one Exihibition", "AttachPiece")
+            </p>
+        </div>
     </div>
     <div>
-        <hr />
+        <hr class="hrStyle">
         <p>
-            @Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
+            @*@Html.ActionLink(linkText: "Back to ##################", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")*@
         </p>
     </div>
-</div>
 
 </body>
 </html>
