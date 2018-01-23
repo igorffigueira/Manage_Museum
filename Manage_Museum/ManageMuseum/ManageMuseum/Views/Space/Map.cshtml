@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "_MapSharedLayout";
+    
+}
+
+@{ var imagePath = "";
+    if (Request["floorChoice"] != null)
+    {
+        imagePath = @"../Images/" + Request["floorChoice"];
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .jardim {
+            color: forestgreen;
+            font-size: 20px;
+        }
+
+        .rooms {
+            color: sandybrown;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Museum Map</h2>
+    <form method="post" action="">
+        <div>
+            I want to see:
+            <select name="floorChoice">
+                <option value="FloorOne.jpg">Piso 1</option>
+                <option value="FloorTwo.jpg">Piso 2</option>
+            </select>
+            &nbsp;
+            <input type="submit" value="Submit" />
+        </div>
+        <div style="padding:10px;">
+            @if (imagePath != "")
+            {
+                <div style="width:60%; height:auto; border-style: inset; padding:0;">
+                    <img src="@imagePath" runat="server" align="middle" ; style="width:100%" ;>
+                    <div align="center">
+                        <span class="jardim" title="Jardim das Orquídeas"><b>1</b></span>
+                        <span class="jardim" title="Jardim do Louro"><b>2</b></span>
+                        <span class="jardim" title="Jardim do Urzal"><b>3</b></span>
+                        <span class="jardim" title="Jardim do Castanheiro"><b>4</b></span>
+                        <span class="jardim" title="Jardim do Eucalipto"><b>5</b></span>
+                        <span class="jardim" title="Jardim da Laurissilva"><b>6</b></span>
+                        <span class="jardim" title="Jardim do Pinheiro"><b>7</b></span>
+                        <span class="jardim" title="Jardim do Labirinto"><b>8</b></span>
+
+                        <span class="rooms" title="Sala Santana"><b>9</b></span>
+                        <span class="rooms" title="Sala Machico"><b>10</b></span>
+                        <span class="rooms" title="Sala São Vicente"><b>11</b></span>
+                        <span class="rooms" title="Sala Ribeira Brava"><b>12</b></span>
+                        <span class="rooms" title="Sala Câmara de Lobos"><b>13</b></span>
+                        <span class="rooms" title="Sala Funchal"><b>14</b></span>
+                        <span class="rooms" title="Sala Ponta do Sol"><b>15</b></span>
+                        <span class="rooms" title="Sala Calheta"><b>16</b></span>
+                        <span class="rooms" title="Sala Porto Moniz"><b>17</b></span>
+                        <span class="rooms" title="Sala Santa Cruz"><b>18</b></span>
+                        <span class="rooms" title="Sala Porto Santo"><b>19</b></span>
+                        <span class="rooms" title="Sala Desertas"><b>20</b></span>
+                    </div>
+                </div>
+            }
+        </div>
+    </form>
+    <div class="form-group">
+        <h2>Altere a capacidade de peças nas salas</h2>
+        <h3>Escolha a sala que pretende alterar:</h3>
+        <label class="control-label col-md-2"> Salas </label>
+        <div class="col-md-10">
+           
+        </div>
+
+    </div>
+</body>
+</html>
+
+
