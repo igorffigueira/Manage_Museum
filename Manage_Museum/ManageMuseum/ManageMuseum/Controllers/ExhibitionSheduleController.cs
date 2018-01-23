@@ -16,26 +16,31 @@ namespace ManageMuseum.Controllers
         {
             // Defines past events as closed, and the rooms associated with those events are again free
             var now = DateTime.Now.Date;
-            var exihibitionEvent = db.EventStates.First(d => d.Name == "exibicao");
-            var events = db.Events.Include(d => d.EventState).Where(d => d.EnDate < now && d.EventState.Id == exihibitionEvent.Id).ToList();
-            var roomFree = db.SpaceStates.First(d => d.Name == "livre"); // Estado de sala livre
-            var endEvent = db.EventStates.First(d => d.Name == "encerrado");
-            foreach (var evento in events)  // Coloca todos os eventos que já passaram do endDate e que ainda se encontram em exibicao
+            var getEventExhibitionState = db.EventStates.First(d => d.Name == "exibicao");
+            var oldEventsOnExihibtion = db.Events.Include(d => d.EventState).Where(d => d.EnDate < now && d.EventState.Id == getEventExhibitionState.Id).ToList();
+            var getRoomFreeState = db.SpaceStates.First(d => d.Name == "livre"); // Estado de sala livre
+            var getEventFinishedState = db.EventStates.First(d => d.Name == "encerrado");
+            foreach (var _event in oldEventsOnExihibtion)  // Coloca todos os eventos que o endDate já ocorreu, e que ainda se encontram em exibicao, com o estado encerrado
             {
-                var roomSetLivre = db.RoomMuseums.Include(d => d.Event).Where(d => d.Event.Id == evento.Id).ToList();
-                foreach (var sala in roomSetLivre) // coloca todas as salas associadas aos eventos nas condicoes acima, como salas livres
+                var getEventRooms = db.RoomMuseums.Include(d => d.Event).Where(d => d.Event.Id == _event.Id).ToList();
+                foreach (var _room in getEventRooms) // coloca todas as salas associadas ao evento nas condicoes acima, com o estado de salas livres
                 {
-                    sala.SpaceState = roomFree;
+                    _room.SumRoomArtPieces = 0;
+                    _room.SpaceState = getRoomFreeState;
+
                     db.SaveChanges();
                 }
-                evento.EventState = endEvent;
+                _event.SumArtPieces = 0;
+                _event.EventState = getEventFinishedState;
                 db.SaveChanges();
             }
+            
+            var getListFreeRooms = db.RoomMuseums.Where(d => d.SpaceState.Name == getRoomFreeState.Name).ToList(); // Salas com o estado livre
+            ViewBag.ListSpaces = new SelectList(getListFreeRooms, "Name", "Name");
+            ViewBag.sizeListRooms = getListFreeRooms.Count;
+
             db.SaveChanges();
 
-            //var roomFree = db.SpaceStates.First(d => d.Name == "livre");   // Estado de sala livre  // Codigo repetido lá em cima
-            var queryListSpaces = db.RoomMuseums.Where(d => d.SpaceState.Name == roomFree.Name).ToList(); // Salas com o estado livre
-            ViewBag.ListSpaces = new SelectList(queryListSpaces, "Name", "Name");
             return View();
         }
         [HttpPost]

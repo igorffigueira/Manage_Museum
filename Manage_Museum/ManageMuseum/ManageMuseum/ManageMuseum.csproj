@@ -166,10 +166,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801230221104_Igor_2nd_migrations.cs" />
-    <Compile Include="Migrations\201801230221104_Igor_2nd_migrations.Designer.cs">
-      <DependentUpon>201801230221104_Igor_2nd_migrations.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArtPiece.cs" />
     <Compile Include="Models\ArtPieceState.cs" />
@@ -240,7 +236,6 @@
     <Content Include="Views\Catalog\AttachPiece.cshtml" />
     <Content Include="Views\Catalog\InsertArtPiece.cshtml" />
     <Content Include="Views\Catalog\ListArtPieces.cshtml" />
-    <Content Include="Views\Catalog\RemovePiece.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,11 +252,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801230221104_Igor_2nd_migrations.resx">
-      <DependentUpon>201801230221104_Igor_2nd_migrations.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

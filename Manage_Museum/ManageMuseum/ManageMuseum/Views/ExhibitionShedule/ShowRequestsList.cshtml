@@ -22,9 +22,9 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(linkText: "View Details", actionName: "EventRequestDetails", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
-                    | @Html.ActionLink(linkText: "Approve", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
-                    | @Html.ActionLink(linkText: "Reject", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                    @Html.ActionLink(linkText: "Detalhes", actionName: "EventRequestDetails", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                    | @Html.ActionLink(linkText: "Aprovar", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                    | @Html.ActionLink(linkText: "Rejeitar", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
                 </td>
                 <td>@item.Name</td>
                 <td>@item.EventType.Name</td>
@@ -39,8 +39,8 @@
 <div>
     <hr class="hrStyle">
     <p>
-        @*@Html.ActionLink(linkText: "Back to the #################3", actionName: "ShowRequestsList")*@
-    </p>
+        @Html.ActionLink(linkText: "Voltar à página principal", actionName: "SheduleEvent", controllerName: "SheduleEvent")
+    </p><br />
 </div>
 </body>
 </html>

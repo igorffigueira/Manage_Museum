@@ -18,7 +18,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-<br/><h1 style="text-align:justify"> Formulário de inserção de novos managers </h1><hr/>
+<br/><h1 style="text-align:justify"> Formulário de inserção de novos utilizadores </h1><hr/>
 <h4 style="text-align: center"> Poderá introduzir novos Space Managers ou Art Piece Managers através da seleção do "Role"</h4><hr/>
 <div class="container">
     @using (Html.BeginForm())
@@ -26,7 +26,7 @@
         @Html.AntiForgeryToken()
         <div class="form-container">
             <div class="form-horizontal">
-                <h4>UserAccount</h4>
+                <h4>Nova Conta de Utilizador</h4>
 
                 @Html.ValidationSummary(true, "", new {@class = "text-danger"})
                 @if (ViewBag.Message != null)
@@ -36,7 +36,8 @@
                     </div>
                 }
                 <div class="form-group">
-                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <label class="control-label col-md-2">Nome: </label>
+                    @*@Html.LabelFor(model => model.FirstName, htmlAttributes: new {@class = "control-label col-md-2"})*@
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.FirstName, "", new {@class = "text-danger"})
@@ -44,7 +45,8 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.LastName, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <label class="control-label col-md-2">Apelido: </label>
+                    @*@Html.LabelFor(model => model.LastName, htmlAttributes: new {@class = "control-label col-md-2"})*@
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.LastName, "", new {@class = "text-danger"})
@@ -59,15 +61,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-2"> Roles </label>
+                    <label class="control-label col-md-2"> Cargo / Papel </label>
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.Role, (SelectList) ViewBag.Roles, htmlAttributes: new {@class = "form-control"})
+                        @Html.DropDownListFor(model => model.Role, (SelectList) ViewBag.Roles, "- Por favor selecione -", htmlAttributes: new {@class = "form-control"})
                         @Html.ValidationMessageFor(model => model.Role, "", new {@class = "text-danger"})
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Password, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <label class="control-label col-md-2">Password: </label>
+                    @*@Html.LabelFor(model => model.Password, htmlAttributes: new {@class = "control-label col-md-2"})*@
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
@@ -75,16 +78,17 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <label class = "control-label col-md-2">Confirmar Password: </label>
+                    @*@Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })*@
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.ConfirmPassword, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new {@class = "text-danger"})
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default"/>
+                        <input type="submit" value="Criar nova conta" class="btn btn-default"/>
                     </div>
                 </div>
             </div>

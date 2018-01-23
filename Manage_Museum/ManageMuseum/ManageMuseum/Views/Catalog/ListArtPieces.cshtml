@@ -17,7 +17,7 @@
     <div class="container">
         <div>
             <hr/>
-            <p style="text-align: center">@Html.ActionLink("Insert new Art Piece", "InsertArtPiece")</p>
+            <p style="text-align: center">@Html.ActionLink("Introduzir uma nova peça de arte ao catálogo", "InsertArtPiece")</p>
             <hr />
         </div>
         <table class="table table-hover table-responsive all_Table">
@@ -38,7 +38,7 @@
 
                     <tr>
                         <td class="table_td_center">
-                            @Html.ActionLink(linkText: "Attach to event", actionName: "AttachPiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)
+                            @Html.ActionLink(linkText: "Colocar numa exibição", actionName: "AttachPiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)
                         </td>
                         <td style="text-align: center; vertical-align: middle;">@item.Name</td>
                         <td style="text-align: center; vertical-align: middle;">@item.ArtPieceState.Name</td>
@@ -53,7 +53,7 @@
                 if (@item.ArtPieceState.Name == "exposicao")
                 {
                     <tr>
-                        <td class="table_td_center">@Html.ActionLink(linkText: "Remove form exihibition", actionName: "RemovePiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)</td>
+                        <td class="table_td_center">@Html.ActionLink(linkText: "Retirar de uma exibição", actionName: "RemovePiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)</td>
                         <td class="table_td_center">@item.Name</td>
                         <td class="table_td_center">@item.ArtPieceState.Name</td>
                         <td class="table_td_center">@item.RoomMuseum.Name</td>
@@ -70,7 +70,7 @@
     <div>
         <hr class="hrStyle">
         <p>
-            @Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
+            @Html.ActionLink(linkText: "Voltar à Página Inicial", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
         </p><br/>
     </div>
 

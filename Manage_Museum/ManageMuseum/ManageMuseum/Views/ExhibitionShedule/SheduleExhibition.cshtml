@@ -23,47 +23,48 @@
     @using (Html.BeginForm())
     {
 
-        <div class="form-container">
-            <div>
-                <label> Nome: </label>
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>           
-            
-            <div class="affix-row">
-                <label> Data de inicio: </label>
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
-            </div>
-
-            <div class="affix-row">
-                <label> Data de Fim: </label>
-                @Html.EditorFor(model => model.EnDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-                @Html.ValidationMessageFor(model => model.EnDate, "", new { @class = "text-danger" })
-            </div>
-
-            <div class="form-group">
-                <label>Lista de Espaços: </label><h6>Para selecionar múltiplas salas usar (CTRL + Click) </h6>
-
-                @Html.ListBoxFor(model => model.SpacesList, (SelectList)ViewBag.ListSpaces, new { Multiple = "multiple", size=12, @class = "form-control" })
-            </div>
-
-            <label>Descrição:</label>
-            @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", @rows = 5 })
-
-
-            <div>
-                <br /><input type="submit" value="Create" class="btn btn-default" />
-            </div>
+    <div class="form-container">
+        <div>
+            <label> Nome: </label>
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
         </div>
+
+        <div class="affix-row">
+            <label> Data de Início: </label>
+            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="affix-row">
+            <label> Data de Fim: </label>
+            @Html.EditorFor(model => model.EnDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+            @Html.ValidationMessageFor(model => model.EnDate, "", new { @class = "text-danger" })
+        </div>
+
+        @{ int sizeList = ViewBag.sizeListRooms; }
+        <div class="form-group">
+            <label>Lista de Salas: </label><h6>Para selecionar múltiplas salas usar (CTRL + Click) </h6>
+
+            @Html.ListBoxFor(model => model.SpacesList, (SelectList)ViewBag.ListSpaces, new { Multiple = "multiple", size = sizeList, @class = "form-control" })
+        </div>
+
+        <label>Descrição:</label><h6>Descreva o seu evento de forma sucinta. </h6>
+        @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", @rows = 5 })
+
+
+        <div>
+            <br /><input type="submit" value="Criar requisição" class="btn btn-default" />
+        </div>
+    </div>
     }
         
 </div>
 <div>
     <hr class="hrStyle">
     <p>
-        @*@Html.ActionLink(linkText: "Back to the #################3", actionName: "ShowRequestsList")*@
-    </p>
+        @Html.ActionLink(linkText: "Voltar à Página Inicial", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
+    </p><br/>
 </div>
 
 </body>
