@@ -24,7 +24,7 @@ namespace ManageMuseum.Models
         public List<string> SpacesList { get; set; }
         public List<string> OutSideSpaces { get; set; }
 
-        private bool Dates()
+        public bool Dates()
         {
             if (EnDate < StartDate)
             {
