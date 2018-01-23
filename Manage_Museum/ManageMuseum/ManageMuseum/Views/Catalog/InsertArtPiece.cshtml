@@ -1,4 +1,5 @@
 ﻿@model ManageMuseum.Models.ArtPiece
+﻿
 @{
     ViewBag.Title = "InsertArtPiece";
     Layout = "~/Views/Shared/_ArtPieceManegerSharedLayout.cshtml";
@@ -14,6 +15,8 @@
 <body>
     <br /><h1 style="text-align:justify"> Inserção de uma nova peça de arte ao catálogo</h1><hr />
     <h4 style="text-align: center"> Após a inserção de uma peça com sucesso, a peça irá estar em armazem.</h4><hr />
+    <br/><h1 style="text-align:justify"> Titulo</h1><hr/>
+    <h4 style="text-align: center"> SubTitulo</h4><hr/>
     <div class="container">
         @using (Html.BeginForm())
         {
@@ -75,6 +78,7 @@
         <hr class="hrStyle">
         <p>
             @Html.ActionLink("Back to List", actionName: "ListArtPieces")
+            @*@Html.ActionLink(linkText: "Back to the #################3", actionName: "ShowRequestsList")*@
         </p>
     </div>
 </body>

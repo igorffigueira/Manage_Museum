@@ -22,6 +22,7 @@ namespace ManageMuseum.Controllers
             var roomFree = db.SpaceStates.First(d => d.Name == "livre");
             var endEvent = db.EventStates.First(d => d.Name == "encerrado");
             foreach (var evento in events)  // Coloca todos os eventos que já passaram do endDate e que ainda se encontram em exibicao
+            foreach (var evento in events)
             {
                 var roomSetLivre = db.RoomMuseums.Include(d => d.Event).Where(d => d.Event.Id == evento.Id).ToList();
                 foreach (var sala in roomSetLivre) // coloca todas as salas associadas aos eventos nas condicoes acima, como salas livres
@@ -32,13 +33,11 @@ namespace ManageMuseum.Controllers
                 evento.EventState = endEvent;
                 db.SaveChanges();
             }
-            
-            
             db.SaveChanges();
             var queryEventTypes = db.EventTypes.ToList();
             ViewBag.EventType = new SelectList(queryEventTypes,"Name","Name");
+            var roomFree = db.SpaceStates.First(d => d.Name == "livre");
             var queryListSpaces = db.RoomMuseums.Where(d=>d.SpaceState.Name == roomFree.Name).ToList();
-            ViewBag.ListSpaces = new SelectList(queryListSpaces,"Id","Id");
 
             return View();
         }

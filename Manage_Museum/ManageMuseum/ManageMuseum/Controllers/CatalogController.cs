@@ -13,9 +13,9 @@ namespace ManageMuseum.Controllers
     public class CatalogController : Controller
     {
         
-        
+
         private OurContectDb db = new OurContectDb();
-        
+
         
         public ActionResult ListArtPieces()
         {
