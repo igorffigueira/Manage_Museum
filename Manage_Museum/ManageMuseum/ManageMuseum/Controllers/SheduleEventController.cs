@@ -51,7 +51,7 @@ namespace ManageMuseum.Controllers
             ViewBag.ListSpaces = new SelectList(getListFreeRooms, "Name","Name");
             ViewBag.sizeNumberRooms = getListFreeRooms.Count;
             var getListOutSideSpaces = db.OutSideSpaces.Where(d => d.SpaceState.Name == getFreeState.Name).ToList();  // Salas com o estado livre
-            ViewBag.ListSpaces = new SelectList(getListFreeRooms, "Name", "Name");
+            ViewBag.ListOutSideSpaces = new SelectList(getListOutSideSpaces, "Name", "Name");
             ViewBag.sizeNumberOutSideSpaces = getListOutSideSpaces.Count;
 
             db.SaveChanges();
