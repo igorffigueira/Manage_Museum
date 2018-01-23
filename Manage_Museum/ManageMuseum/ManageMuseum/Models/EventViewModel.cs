@@ -22,6 +22,7 @@ namespace ManageMuseum.Models
         public string EventType { get; set; }
         public string Description { get; set; }
         public List<string> SpacesList { get; set; }
+        public List<string> OutSideSpaces { get; set; }
 
         private bool Dates()
         {
