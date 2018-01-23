@@ -11,12 +11,30 @@ namespace ManageMuseum.Controllers
     public class ExhibitionSheduleController : Controller
     {
         private OurContectDb db = new OurContectDb();
-        // GET: ExhibitionShedule
+        // GET: SheduleExhibition
         public ActionResult SheduleExhibition()
         {
-            var roomStateFree = db.SpaceStates.First(d => d.Name == "livre");   // Estado de sala livre
-            var queryListSpaces = db.RoomMuseums.Where(d => d.SpaceState.Name == roomStateFree.Name).ToList(); // Salas com o estado livre
+            // Defines past events as closed, and the rooms associated with those events are again free
+            var now = DateTime.Now.Date;
+            var exihibitionEvent = db.EventStates.First(d => d.Name == "exibicao");
+            var events = db.Events.Include(d => d.EventState).Where(d => d.EnDate < now && d.EventState.Id == exihibitionEvent.Id).ToList();
+            var roomFree = db.SpaceStates.First(d => d.Name == "livre"); // Estado de sala livre
+            var endEvent = db.EventStates.First(d => d.Name == "encerrado");
+            foreach (var evento in events)  // Coloca todos os eventos que já passaram do endDate e que ainda se encontram em exibicao
+            {
+                var roomSetLivre = db.RoomMuseums.Include(d => d.Event).Where(d => d.Event.Id == evento.Id).ToList();
+                foreach (var sala in roomSetLivre) // coloca todas as salas associadas aos eventos nas condicoes acima, como salas livres
+                {
+                    sala.SpaceState = roomFree;
+                    db.SaveChanges();
+                }
+                evento.EventState = endEvent;
+                db.SaveChanges();
+            }
+            db.SaveChanges();
 
+            //var roomFree = db.SpaceStates.First(d => d.Name == "livre");   // Estado de sala livre  // Codigo repetido lá em cima
+            var queryListSpaces = db.RoomMuseums.Where(d => d.SpaceState.Name == roomFree.Name).ToList(); // Salas com o estado livre
             ViewBag.ListSpaces = new SelectList(queryListSpaces, "Name", "Name");
             return View();
         }
