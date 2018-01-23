@@ -30,7 +30,8 @@ namespace ManageMuseum.Controllers
             ViewBag.EventType = new SelectList(queryEventTypes,"Name","Name");
             var roomFree = db.SpaceStates.First(d => d.Name == "livre");
             var queryListSpaces = db.RoomMuseums.Where(d=>d.SpaceState.Name == roomFree.Name).ToList();
-            ViewBag.ListSpaces = new SelectList(queryListSpaces,"Id","Id");
+            ViewBag.ListSpaces = new SelectList(queryListSpaces,"Name","Name");
+            ViewBag.size = queryListSpaces.Count;
 
             return View();
         }
