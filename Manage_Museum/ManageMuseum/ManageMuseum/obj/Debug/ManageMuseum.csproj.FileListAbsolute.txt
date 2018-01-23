@@ -232,6 +232,10 @@ D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.CoreCompileInputs.cache
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.dll
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.pdb
+D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ExpressiveAnnotations.dll
+D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ExpressiveAnnotations.MvcUnobtrusive.dll
+D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ExpressiveAnnotations.xml
+D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ExpressiveAnnotations.MvcUnobtrusive.xml
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations._1st.resources
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ExpressiveAnnotations.dll
