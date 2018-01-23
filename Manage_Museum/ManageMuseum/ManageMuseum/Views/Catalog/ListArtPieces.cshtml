@@ -12,19 +12,24 @@
     @Styles.Render("~/Content/OurCSS.css")
 </head>
 <body>
-    <div class="contain">
-        <h2> List of Art Pieces on Catalog</h2>
-
-        <table class="table table-hover table-responsive">
+    <br/><h1 style="text-align:justify"> List of Art Pieces on Catalog</h1><hr/>
+    <h4 style="text-align: center"> Poderá introduzir uma nova peça ao catálogo, remover uma peça de um evento e colocá-la em armazém ou ainda colocar numa sala de um evento  </h4><hr />
+    <div class="container">
+        <div>
+            <hr/>
+            <p style="text-align: center">@Html.ActionLink("Introduzir uma nova peça de arte ao catálogo", "InsertArtPiece")</p>
+            <hr />
+        </div>
+        <table class="table table-hover table-responsive all_Table">
             <tr>
-                <th> # </th>
-                <th>Art Piece Name</th>
-                <th>Art Piece State</th>
-                <th>Room</th>
-                <th>Author</th>
-                <th>Year</th>
-                <th>Dimension</th>
-                <th>Description</th>
+                <th style="text-align: center"> # </th>
+                <th style="text-align: center">Art Piece Name</th>
+                <th style="text-align: center">Art Piece State</th>
+                <th style="text-align: center">Room</th>
+                <th style="text-align: center">Author</th>
+                <th style="text-align: center">Year</th>
+                <th style="text-align: center">Dimension</th>
+                <th style="text-align: center">Description</th>
             </tr>
             @foreach (var item in @ViewBag.Data)
             {
@@ -33,42 +38,40 @@
 
                     <tr>
                         <td class="table_td_center">
-                            @Html.ActionLink(linkText: "Attach to event", actionName: "AttachPiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)
+                            @Html.ActionLink(linkText: "Colocar numa exibição", actionName: "AttachPiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)
                         </td>
-                        <td class="table_td_center">@item.Name</td>
-                        <td class="table_td_center">@item.ArtPieceState.Name</td>
-                        <td class="table_td_center"> - </td>
-                        <td class="table_td_center">@item.Author</td>
-                        <td class="table_td_center">@item.Year</td>
-                        <td class="table_td_center">@item.Dimension</td>
-                        <td class="table_td_center">@item.Description</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Name</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.ArtPieceState.Name</td>
+                        <td style="text-align: center; vertical-align: middle;"> - </td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Author</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Year</td>
+                        <td style="text-align: center; vertical-align: middle;">@item.Dimension</td>
+                        <td class="table_td_center_justify">@item.Description</td>
                     </tr>
 
                 }
                 if (@item.ArtPieceState.Name == "exposicao")
                 {
                     <tr>
-                        <td class="table_td_center">@Html.ActionLink(linkText: "Remove form exihibition", actionName: "RemovePiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)</td>
+                        <td class="table_td_center">@Html.ActionLink(linkText: "Retirar de uma exibição", actionName: "RemovePiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)</td>
                         <td class="table_td_center">@item.Name</td>
                         <td class="table_td_center">@item.ArtPieceState.Name</td>
                         <td class="table_td_center">@item.RoomMuseum.Name</td>
                         <td class="table_td_center">@item.Author</td>
                         <td class="table_td_center">@item.Year</td>
                         <td class="table_td_center">@item.Dimension</td>
-                        <td class="table_td_center">@item.Description</td>
+                        <td class="table_td_center_justify">@item.Description</td>
                     </tr>
                 }
             }
 
         </table>
-
-        <hr /><hr />
-
-        <p>@Html.ActionLink("Insert new Art Piece", "InsertArtPiece")</p>
-
-        <hr /><hr />
-
-        <p>@Html.ActionLink(linkText: "Back to Home Page", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")</p>
+    </div>
+    <div>
+        <hr class="hrStyle">
+        <p>
+            @Html.ActionLink(linkText: "Voltar à Página Inicial", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
+        </p><br/>
     </div>
 
 </body>

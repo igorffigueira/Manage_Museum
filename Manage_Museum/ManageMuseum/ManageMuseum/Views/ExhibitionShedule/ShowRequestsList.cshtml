@@ -10,19 +10,21 @@
     <title>ShowRequestsList</title>
 </head>
 <body>
+<br/><h1 style="text-align:justify"> Lista de eventos do tipo exposição para aprovação por um Space Manager </h1><hr/>
+<h4 style="text-align: center"> Um Evento requisitado por um Art Piece Manager é comunicado aos Space Managers para a sua aprovação</h4><hr/>
 <div class="container">
-    
-    
     <table class="table table-hover">
         <tr>
             <th> # </th><th> Name </th><th> Type </th><th> Start Date </th><th> End Date </th><th> Event Number </th>
         </tr>
-        
+
         @foreach (var item in ViewBag.Data)
-        { 
+        {
             <tr>
-                <td>@Html.ActionLink(linkText: "View Details", actionName: "EventRequestDetails", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
-                    |   @Html.ActionLink(linkText: "Approve", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                <td>
+                    @Html.ActionLink(linkText: "Detalhes", actionName: "EventRequestDetails", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                    | @Html.ActionLink(linkText: "Aprovar", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
+                    | @Html.ActionLink(linkText: "Rejeitar", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @item.Id }, htmlAttributes: null)
                 </td>
                 <td>@item.Name</td>
                 <td>@item.EventType.Name</td>
@@ -30,8 +32,15 @@
                 <td>@item.EnDate</td>
                 <td>@item.Id</td>
             </tr>
-        }       
+        }
     </table>
+    
+</div>
+<div>
+    <hr class="hrStyle">
+    <p>
+        @Html.ActionLink(linkText: "Voltar à página principal", actionName: "SheduleEvent", controllerName: "SheduleEvent")
+    </p><br />
 </div>
 </body>
 </html>

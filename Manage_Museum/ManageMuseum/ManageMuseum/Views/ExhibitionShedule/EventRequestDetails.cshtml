@@ -10,26 +10,31 @@
     <title>EventRequestDetails</title>
 </head>
 <body>
-    <div>
+    <br/><h1 style="text-align:justify"> Detalhes de um Pedido de Exposição </h1><hr/>
+    <h4 style="text-align: center"> Detalhes necessários para a tomada de decisão de um Space Manager </h4><hr/>
+    <div class="container">
         <div>
-            <h2> Event Number: @ViewData["EventSelected"]</h2>
+            <h3> Event Number: @ViewData["EventSelected"]</h3>
+            
+            <h4><u>Pedido pelo utilizador número (@ViewData["EventUserId"]):</u> @ViewData["EventUserFName"] @ViewData["EventUserLName"] (Art Piece Manager)</h4>
+            <hr>
+            <h4><b>Nome: </b> @ViewData["EventName"]</h4>
+            <h4><b>Tipo de Evento: </b>@ViewData["EventType"]</h4>
+            <h4><b>Data de Início: </b>@ViewData["EventStartDate"]</h4>
+            <h4><b>Data de Fim: </b>@ViewData["EventEndDate"]</h4>
+            <h4><b>Descrição: </b>@ViewData["EventDescription"]</h4>
             <hr/>
-            <p>From User: (@ViewData["EventUserId"]) @ViewData["EventUserFName"] @ViewData["EventUserLName"]</p>
-            <h4>Name: @ViewData["EventName"]</h4>
-            <h4>Event Type: @ViewData["EventType"]</h4>
-            <h4>Start Date: @ViewData["EventStartDate"]</h4>
-            <h4>End Date: @ViewData["EventEndDate"]</h4>
-            <h4>Description: @ViewData["EventDescription"]</h4>
         </div>
         <div>
-            @Html.ActionLink(linkText: "Approve Event", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })
-        </div>
-        <hr />
+            <p>@Html.ActionLink(linkText: "Aprovar Evento", actionName: "EventRequestApprove", controllerName: "ExhibitionShedule", routeValues: new {eventId = @ViewData["EventSelected"]}, htmlAttributes: new {@class = "btn"})   |   @Html.ActionLink(linkText: "Rejeitar Evento", actionName: "EventRequestReject", controllerName: "ExhibitionShedule", routeValues: new { eventId = @ViewData["EventSelected"] }, htmlAttributes: new { @class = "btn" })</p>
+        </div> 
+    </div>
+    <div>
+        <hr class="hrStyle">
         <p>
-            @Html.ActionLink(linkText: "Back to List of Pending Events", actionName: "ShowRequestsList")
-        </p>
+            @Html.ActionLink(linkText: "Voltar à Lista de Eventos de Exposições para Aprovação", actionName: "ShowRequestsList")
+        </p><br />
     </div>
 
-
-        </body>
-        </html>
+</body>
+</html>

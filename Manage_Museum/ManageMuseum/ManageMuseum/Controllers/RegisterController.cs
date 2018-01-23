@@ -30,7 +30,7 @@ namespace ManageMuseum.Controllers
             db.UserAccounts.Add(userAccountInsert);
             db.SaveChanges();
 
-            return View();
+            return Redirect("Register");
         }
     }
 }

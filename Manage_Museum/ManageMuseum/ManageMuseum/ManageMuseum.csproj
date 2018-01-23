@@ -52,6 +52,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="ExpressiveAnnotations, Version=2.7.4.0, Culture=neutral, PublicKeyToken=d3e372f3c1e83cec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExpressiveAnnotations.2.9.6\lib\net45\ExpressiveAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="ExpressiveAnnotations.MvcUnobtrusive, Version=2.5.4.0, Culture=neutral, PublicKeyToken=d3e372f3c1e83cec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExpressiveAnnotations.2.9.6\lib\net45\ExpressiveAnnotations.MvcUnobtrusive.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome, Version=1.0.5578.25903, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome-ASP.NET.1.0.5578.25903\lib\net451\FontAwesome.dll</HintPath>
     </Reference>
@@ -161,10 +167,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801210311254_1st.cs" />
-    <Compile Include="Migrations\201801210311254_1st.Designer.cs">
-      <DependentUpon>201801210311254_1st.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArtPiece.cs" />
     <Compile Include="Models\ArtPieceState.cs" />
@@ -177,6 +179,7 @@
     <Compile Include="Models\OutSideSpace.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoomMuseum.cs" />
+    <Compile Include="Models\SpaceState.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,6 +201,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\expressive.annotations.validate.js" />
+    <Content Include="Scripts\expressive.annotations.validate.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -229,14 +234,11 @@
     <Content Include="Views\Login\ConfirmLogin.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\ExhibitionShedule\ShowRequestsList.cshtml" />
-    <Content Include="Views\ExhibitionShedule\EventRequestApprove.cshtml" />
     <Content Include="Views\ExhibitionShedule\EventRequestDetails.cshtml" />
     <Content Include="Views\SheduleEvent\ApprovedExhibition.cshtml" />
     <Content Include="Views\Catalog\AttachPiece.cshtml" />
     <Content Include="Views\Catalog\InsertArtPiece.cshtml" />
     <Content Include="Views\Catalog\ListArtPieces.cshtml" />
-    <Content Include="Views\Catalog\RemovePiece.cshtml" />
-    <Content Include="Views\Space\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -253,11 +255,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801210311254_1st.resx">
-      <DependentUpon>201801210311254_1st.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

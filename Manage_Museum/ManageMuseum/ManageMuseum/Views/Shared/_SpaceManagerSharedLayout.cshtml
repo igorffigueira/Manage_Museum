@@ -3,7 +3,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -24,36 +23,42 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <span class="visible-xs navbar-brand">Sidebar menu</span>
+                        <span class="visible-xs navbar-brand">Space Manager</span>
                     </div>
-                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                    <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav" id="sidenav01">
                             <li class="active">
-                                <a href="@Url.Action("Index","Home")" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
+                                <a href="@Url.Action("Index","Home")">
                                     <h4>
-                                        @ViewBag.Title
-                                        <br>
-                                       
+                                        @ViewBag.Title<br>
                                     </h4>
                                 </a>
-                              </li>
+                            </li>
                             <li>
                                 <a href="@Url.Action("Map","Space")" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
                                     <span class="glyphicon glyphicon-map-marker"></span> Ver Mapa <span class="caret pull-right"></span>
                                 </a>
-                             </li>
+                            </li>
                             <li>
-                                <a href="@Url.Action("SheduleEvent","SheduleEvent")" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
-                                    <span class="glyphicon glyphicon-calendar"></span> Marcar Eventos <span class="caret pull-right"></span>
-                                </a>
-                                </li>
-                            <li>
-                                <a href="@Url.Action("ShowRequestsList", "ExhibitionShedule")">
-                                    <span class="glyphicon glyphicon-inbox"></span> Pedidos
+                                <a href="@Url.Action("SheduleEvent","SheduleEvent")">
+                                    <span class="glyphicon glyphicon-calendar"></span> Marcar Eventos<span class="caret pull-right"></span>
                                 </a>
                             </li>
-                            <li><a href="@Url.Action("Register","Register")"><span class="glyphicon glyphicon-plus"></span> Registar <span class="badge pull-right">42</span></a></li>
-                            <li><a href=""><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+                            <li>
+                                <a href="@Url.Action("ShowRequestsList", "ExhibitionShedule")">
+                                    <span class="glyphicon glyphicon-inbox"></span> Pedidos de Exposições <span class="caret pull-right"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Register", "Register")">
+                                    <span class="glyphicon glyphicon-plus"></span> Registar Utilizador<span class="caret pull-right"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("ConfirmLogin", "Login")">
+                                    <span class="glyphicon glyphicon-log-out"></span> LogOut<span class="caret pull-right"></span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -61,13 +66,11 @@
         </div>
         <div class="col-sm-9 col-md-10 affix-content">
             @RenderBody()
-           
         </div>
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
-        
     </div>
 </body>
 </html>

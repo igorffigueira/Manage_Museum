@@ -15,8 +15,9 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-<h1 >Pedidos Aceites</h1>
-<div>
+<br/><h1 style="text-align:justify"> Exposições Aprovadas </h1><hr/>
+<h4 style="text-align: center"> Eventos requisitados que já se encontram aprovados </h4><hr/>
+<div class="container">
     <table class="table table-hover">
         <tr>
             <th> Nome do Evento</th><th> Start Date</th><th>End Date</th>
@@ -24,11 +25,18 @@
         @foreach (var item in ViewBag.EventsToShow)
         {
             <tr>
-                  <td>@item.Name</td><td>@item.StartDate</td><td>@item.EnDate</td>
+                <td>@item.Name</td><td>@item.StartDate</td><td>@item.EnDate</td>
             </tr>
         }
     </table>
 </div>
+<div>
+    <hr class="hrStyle">
+    <p>
+        @Html.ActionLink(linkText: "Voltar à Página Inicial", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")
+    </p><br/>
+</div>
+
 </body>
 </html>
 

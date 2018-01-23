@@ -12,7 +12,15 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
+    <br/><h1 style="text-align:justify"> Inserção de uma nova peça de arte no catálogo do museum</h1><hr/>
+    <h4 style="text-align: center"> Após a inserção de uma nova peça, esta será colocada em armazém</h4><hr/>
+    <div class="container">
     </div>
+<div>
+    <hr class="hrStyle">
+    <p>
+        @Html.ActionLink(linkText: "Voltar ao Catálogo de Peças", actionName: "ListArtPieces", controllerName: "Catalog")
+    </p><br/>
+</div>
 </body>
 </html>
