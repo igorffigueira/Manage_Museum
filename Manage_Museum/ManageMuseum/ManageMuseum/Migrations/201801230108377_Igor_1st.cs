@@ -3,7 +3,7 @@ namespace ManageMuseum.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _1st : DbMigration
+    public partial class Igor_1st : DbMigration
     {
         public override void Up()
         {
@@ -12,11 +12,12 @@ namespace ManageMuseum.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        Description = c.String(nullable: false),
+                        Name = c.String(),
+                        Description = c.String(),
                         Dimension = c.Double(nullable: false),
                         Year = c.DateTime(nullable: false),
-                        Author = c.String(nullable: false),
+                        Author = c.String(),
+                        State = c.String(),
                         ArtPieceState_Id = c.Int(),
                         RoomMuseum_Id = c.Int(),
                     })
