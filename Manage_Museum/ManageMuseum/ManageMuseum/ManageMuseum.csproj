@@ -173,6 +173,9 @@
     <Compile Include="Migrations\201801221627519_1st.Designer.cs">
       <DependentUpon>201801221627519_1st.cs</DependentUpon>
 =======
+    <Compile Include="Migrations\201801221956400_1st.cs" />
+    <Compile Include="Migrations\201801221956400_1st.Designer.cs">
+      <DependentUpon>201801221956400_1st.cs</DependentUpon>
 >>>>>>> master
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
@@ -268,6 +271,8 @@
     <EmbeddedResource Include="Migrations\201801221627519_1st.resx">
       <DependentUpon>201801221627519_1st.cs</DependentUpon>
 =======
+    <EmbeddedResource Include="Migrations\201801221956400_1st.resx">
+      <DependentUpon>201801221956400_1st.cs</DependentUpon>
 >>>>>>> master
     </EmbeddedResource>
   </ItemGroup>
