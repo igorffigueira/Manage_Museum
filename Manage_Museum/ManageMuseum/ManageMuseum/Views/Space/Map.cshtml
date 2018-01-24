@@ -91,7 +91,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2"> Capacidade da Sala </label>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SumRoomArtPieces,(string) ViewBag.capacity,new { @min = "1", @max = "100", @type = "number", htmlAttributes = new { @class = "form-control"}})
+                    @Html.EditorFor(model => model.MaxRoomArtPieces, (string) ViewBag.capacity,new { @min = "1", @max = "100", @type = "number", htmlAttributes = new { @class = "form-control"}})
                     @*@Html.ValidationMessageFor(model => model.SumRoomArtPieces, "", new { @class = "text-danger" })*@
                 </div>
             </div>

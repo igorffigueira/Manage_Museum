@@ -13,6 +13,6 @@ namespace ManageMuseum.Models
 
         [Required(ErrorMessage = "Capacity of a room is Required")]
         [Range(1, 100, ErrorMessage = "The number must between 1 and 100")]
-        public int SumRoomArtPieces { get; set; }
+        public int MaxRoomArtPieces { get; set; }
     }
 }

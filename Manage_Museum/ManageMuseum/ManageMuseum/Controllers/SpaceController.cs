@@ -25,12 +25,11 @@ namespace ManageMuseum.Controllers
             var rooms = db.RoomMuseums.ToList();
             ViewBag.RoomMuseums = new SelectList(rooms, "Name", "Name");
             var roomName = roomMuseum.RoomName;
-            var roomCapacity = roomMuseum.SumRoomArtPieces;
-            //var roomCapacity = db.RoomMuseums.Single(s=>s.Name == roomName);
-            //TempData["capacity"] = roomCapacity.SumRoomArtPieces.ToString();
+            var roomCapacity = roomMuseum.MaxRoomArtPieces;
+
             var Room = db.RoomMuseums.Single(s=>s.Name == roomName);
 
-            Room.SumRoomArtPieces = roomCapacity;
+            Room.MaxRoomArtPieces = roomCapacity;
             
             db.SaveChanges();
             
