@@ -11,30 +11,11 @@ namespace ManageMuseum.Controllers
     public class ExhibitionSheduleController : Controller
     {
         private OurContectDb db = new OurContectDb();
+
         // GET: SheduleExhibition
         public ActionResult SheduleExhibition()
         {
-            // Defines past events as closed, and the rooms associated with those events are again free
-            var now = DateTime.Now.Date;
-            var getEventExhibitionState = db.EventStates.First(d => d.Name == "exibicao");
-            var oldEventsOnExihibtion = db.Events.Include(d => d.EventState).Where(d => d.EnDate < now && d.EventState.Id == getEventExhibitionState.Id).ToList();
-            var getRoomFreeState = db.SpaceStates.First(d => d.Name == "livre"); // Estado de sala livre
-            var getEventFinishedState = db.EventStates.First(d => d.Name == "encerrado");
-            foreach (var _event in oldEventsOnExihibtion)  // Coloca todos os eventos que o endDate já ocorreu, e que ainda se encontram em exibicao, com o estado encerrado
-            {
-                var getEventRooms = db.RoomMuseums.Include(d => d.Event).Where(d => d.Event.Id == _event.Id).ToList();
-                foreach (var _room in getEventRooms) // coloca todas as salas associadas ao evento nas condicoes acima, com o estado de salas livres
-                {
-                    _room.SumRoomArtPieces = 0;
-                    _room.SpaceState = getRoomFreeState;
-
-                    db.SaveChanges();
-                }
-                _event.SumArtPieces = 0;
-                _event.EventState = getEventFinishedState;
-                db.SaveChanges();
-            }
-            
+            var getRoomFreeState = db.SpaceStates.First(d => d.Name == "livre"); // Estado de sala livre   --------------FICAR
             var getListFreeRooms = db.RoomMuseums.Where(d => d.SpaceState.Name == getRoomFreeState.Name).ToList(); // Salas com o estado livre
             ViewBag.ListSpaces = new SelectList(getListFreeRooms, "Name", "Name");
             ViewBag.sizeListRooms = getListFreeRooms.Count;
@@ -43,6 +24,7 @@ namespace ManageMuseum.Controllers
 
             return View();
         }
+
         [HttpPost]
         public ActionResult SheduleExhibition(EventViewModel events)
         {
