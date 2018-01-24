@@ -76,5 +76,11 @@ namespace ManageMuseum.Controllers
 
             return View();
         }
+
+        public ActionResult LogOut()
+        {
+            Response.Cookies.Clear();
+            return RedirectToAction("ConfirmLogin", "Login");
+        }
     }
 }
