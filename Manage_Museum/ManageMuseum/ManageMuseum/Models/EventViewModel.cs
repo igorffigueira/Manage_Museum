@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using ExpressiveAnnotations.Attributes;
@@ -10,10 +9,12 @@ namespace ManageMuseum.Models
     public class EventViewModel
     {
         public string Name { get; set; }
-      
+
+       
         public DateTime StartDate { get; set; }
-        
-        [AssertThat("Dates()", ErrorMessage = "A data de fim pode ser anterior à data de início ")]
+
+
+        [AssertThat("Dates() == true", ErrorMessage = "A data de fim pode ser anterior à data de início ")]
         public DateTime EnDate { get; set; }
         
 

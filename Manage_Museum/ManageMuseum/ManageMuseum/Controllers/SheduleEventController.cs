@@ -16,6 +16,8 @@ namespace ManageMuseum.Controllers
         // GET: SheduleEvent
         public ActionResult SheduleEvent()
         {
+            
+
             var now = DateTime.Now.Date;
             var getEventExhibitionState = db.EventStates.First(d => d.Name == "exibicao");
             var oldEventsOnExihibtion = db.Events.Include(d => d.EventState).Where(d => d.EnDate < now && d.EventState.Id == getEventExhibitionState.Id).ToList();
@@ -51,11 +53,11 @@ namespace ManageMuseum.Controllers
             ViewBag.ListSpaces = new SelectList(getListFreeRooms, "Name","Name");
             ViewBag.sizeNumberRooms = getListFreeRooms.Count;
             var getListOutSideSpaces = db.OutSideSpaces.Where(d => d.SpaceState.Name == getFreeState.Name).ToList();  // Salas com o estado livre
-            ViewBag.ListSpaces = new SelectList(getListFreeRooms, "Name", "Name");
+            ViewBag.ListOutSideSpaces = new SelectList(getListOutSideSpaces, "Name", "Name");
             ViewBag.sizeNumberOutSideSpaces = getListOutSideSpaces.Count;
 
             db.SaveChanges();
-
+           
             return View();
         }
 
@@ -79,16 +81,59 @@ namespace ManageMuseum.Controllers
         [HttpPost]
         public ActionResult SheduleEvent(EventViewModel events)
         {
+           
             var eventType = events.EventType;
+            var eventSpacesList = events.SpacesList;
+            var outSide = events.OutSideSpaces;
+           
+            var roomState = db.SpaceStates.Single(s => s.Name == "ocupada");
             var getEventTypeRow = db.EventTypes.FirstOrDefault(s => s.Name == eventType);
             var eventState = db.EventStates.Single(s => s.Name == "aceites");
             var userId = Int32.Parse(Request.Cookies["UserId"].Value);
-            var userAccount = db.UserAccounts.Include(d=>d.Role).FirstOrDefault(s => s.Id == userId);
-            var finalEvent = new Event() {Name = events.Name, StartDate = events.StartDate, EnDate = events.EnDate,Description = events.Description,EventType = getEventTypeRow, EventState = eventState,UserAccount = userAccount};
+            var userAccount = db.UserAccounts.Include(d => d.Role).FirstOrDefault(s => s.Id == userId);
+            var finalEvent = new Event()
+            {
+                Name = events.Name,
+                StartDate = events.StartDate,
+                EnDate = events.EnDate,
+                Description = events.Description,
+                EventType = getEventTypeRow,
+                EventState = eventState,
+                UserAccount = userAccount
+            };
+            if (events.EventType =="exposicao")
+            {
+
+                var listSpaces = new List<RoomMuseum>();
+                foreach (var rooms in eventSpacesList)
+                {
+                    listSpaces.Add(db.RoomMuseums.Single(s => s.Name == rooms));
+                }
+              
+
+                foreach (var rooms in listSpaces)
+                {
+                    rooms.Event = finalEvent;
+                    rooms.SpaceState = roomState;
+                }
+
+              
+            } else if (events.EventType =="social")
+            {
+                var listOuside = new List<OutSideSpace>();
+                foreach (var space in outSide)
+                {
+                    listOuside.Add(db.OutSideSpaces.Single(s=>s.Name == space));
+                }
+                foreach (var spaces in listOuside)
+                {
+                    spaces.Event = finalEvent;
+                    spaces.SpaceState = roomState;
+                }
+            }
             
             db.Events.Add(finalEvent);
             db.SaveChanges();
-
             return Redirect("SheduleEvent");
         }
 
