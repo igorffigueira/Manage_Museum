@@ -15,6 +15,7 @@ namespace ManageMuseum.Models
         public SpaceState SpaceState { get; set; } // State of the room free or busy
         [DefaultValue(0)]
         public int SumRoomArtPieces { get; set; }
+        public int MaxRoomArtPieces { get; set; }
         public int Floor { get; set; }
         public Event Event { get; set; }
 

@@ -1,0 +1,93 @@
+﻿@using ManageMuseum.Models
+
+@{
+    ViewBag.Title = "SelectRoomToAttachArtPiece";
+    Layout = "~/Views/Shared/_ArtPieceManegerSharedLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <br /><h1 style="text-align:justify"> Lista de salas requisitadas para uma exposição </h1><hr />
+    <h4 style="text-align: center"> Escolha a sala em que pretende inserir a peça de arte escolhida</h4><hr />
+    <div class="container">
+        <div>
+            <h3> Peça de Arte número: #@ViewBag.PieceSelected.Id</h3>
+            <hr>
+            <h4><b>Nome: </b> @ViewBag.PieceSelected.Name</h4>
+            <h4><b>Autor: </b>@ViewBag.PieceSelected.Author</h4>
+            <h4><b>Data de Criação: </b>@ViewBag.PieceSelected.Year</h4>
+            <h4><b>Dimensão: </b>@ViewBag.PieceSelected.Dimension</h4>
+            <h4><b>Descrição: </b>@ViewBag.PieceSelected.Description</h4>
+            <hr>
+        </div>
+        @*<div>
+            <p>
+                @Html.ActionLink(linkText: "Escolher outra peça para inserir", actionName: "SelectRoomToAttachArtPiece", controllerName: "Catalog")
+            </p><br />
+        </div>*@
+        <div>
+            <h3> Evento número: #@ViewBag.ExhibitionSelected.Id</h3>
+            <hr>
+            <h4><b> Evento: </b> @ViewBag.ExhibitionSelected.Name</h4><h4><b> Número de Peças no Evento: </b> @ViewBag.ExhibitionSelected.SumArtPieces</h4>
+            <h4><b> Data de Início: </b> @ViewBag.ExhibitionSelected.StartDate</h4><h4><b> Data de Fim: </b> @ViewBag.ExhibitionSelected.EnDate</h4>
+            <hr><br/>
+        </div>
+        @*<div>
+            <p>
+                @Html.ActionLink(linkText: "Escolher outro evento para inserir", actionName: "SelectEventToAttachArtPice", controllerName: "Catalog")
+            </p><br />
+        </div>*@
+
+        <table class="table table-hover">
+            <tr>
+                <th> # </th>
+                <th> Número da Sala: </th>
+                <th> Nome: </th>
+                <th> Número de peças na sala:</th>
+                <th> Piso: </th>
+            </tr>
+
+            @foreach (var item in (List<RoomMuseum>)ViewBag.RoomsExhibition)
+            {
+                //foreach(var item in room)
+                //{
+                    @*if (item.SumRoomArtPieces > item.MaxRoomArtPieces)   //FALTA Inserir número máximo de peças no model RoomMuseum
+                        {
+                            <tr>
+                                <td> - </td>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td> Sala Cheia </td>
+                                <td>@item.Floor</td>
+                            </tr>
+                        }
+                        else
+                        {*@
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(linkText: "Inserir", actionName: "AttachArtPiece", controllerName: "Catalog", routeValues: new { artpieceId = @ViewBag.PieceSelected.Id, eventId = @ViewBag.ExhibitionSelected.Id, roomId = @item.Id }, htmlAttributes: null)
+                                </td>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.SumRoomArtPieces</td>
+                                <td>@item.Floor</td>
+                            </tr>
+                        @*}*@
+                @*}*@
+            }
+        </table>
+    </div>
+    <div>
+        <hr class="hrStyle">
+        <p>
+            @Html.ActionLink(linkText: "Voltar ao Catálogo", actionName: "ListArtPieces", controllerName: "Catalog")
+        </p><br />
+    </div>
+</body>
+</html>

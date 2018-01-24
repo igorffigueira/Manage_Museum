@@ -11,7 +11,6 @@ namespace ManageMuseum.Models
     {
         [Key]
         public int Id { get; set; }
-
         public DateTime StartDate { get; set; }
         public DateTime EnDate { get; set; }
         public string Name { get; set; }
@@ -23,6 +22,5 @@ namespace ManageMuseum.Models
         public UserAccount UserAccount { get; set; }
         public ICollection<RoomMuseum> RoomMuseums { get; set; }
         public ICollection<OutSideSpace> OutSideSpaces { get; set; }
-
     }
 }
