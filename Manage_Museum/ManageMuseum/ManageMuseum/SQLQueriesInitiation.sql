@@ -24,18 +24,18 @@ Insert INTO EVENTS(SumArtPieces,StartDate,EnDate, Description,Name, EventType_Id
 Insert INTO SPACESTATES(Name) VALUES ('livre');
 Insert INTO SPACESTATES(Name) VALUES ('ocupada');
 
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','1','Sala Funchal','1');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','1','Sala Câmara de Lobos','1');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','2','sala Ribeira Brava','1');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','2','Sala Ponta de Sol','1');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','3','Sala Calheta','1');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','3','sala Porto Moniz','1');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','4','Sala São Vicente','2');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','4','Sala Santana','2');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','1','5','sala Machico','2');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','5','Sala Santa Cruz','2');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','6','Sala Porto Santo','2');
-Insert INTO ROOMMUSEUMS(SumRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','2','6','sala Desertas','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','40','1','1','Sala Funchal','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','30','1','1','Sala Câmara de Lobos','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','30','1','2','sala Ribeira Brava','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','20','2','2','Sala Ponta de Sol','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','20','2','3','Sala Calheta','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','25','2','3','sala Porto Moniz','1');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','25','1','4','Sala São Vicente','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','20','1','4','Sala Santana','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','20','1','5','sala Machico','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','35','2','5','Sala Santa Cruz','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','35','2','6','Sala Porto Santo','2');
+Insert INTO ROOMMUSEUMS(SumRoomArtPieces,MaxRoomArtPieces,Floor,Event_Id,Name,SpaceState_Id) VALUES ('0','40','2','6','sala Desertas','2');
 
 Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim do Labirinto','20000','1','2');
 Insert INTO OUTSIDESPACES(Name,Area,SpaceState_Id,Event_Id) VALUES ('Jardim do Pinheiro','7000','1','2');

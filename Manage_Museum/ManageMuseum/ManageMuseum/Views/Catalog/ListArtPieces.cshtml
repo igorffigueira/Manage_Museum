@@ -12,7 +12,7 @@
     @Styles.Render("~/Content/OurCSS.css")
 </head>
 <body>
-    <br/><h1 style="text-align:justify"> List of Art Pieces on Catalog</h1><hr/>
+    <br/><h1 style="text-align:justify"> Lista de peças de arte no catálogo do museu</h1><hr/>
     <h4 style="text-align: center"> Poderá introduzir uma nova peça ao catálogo, remover uma peça de um evento e colocá-la em armazém ou ainda colocar numa sala de um evento  </h4><hr />
     <div class="container">
         <div>
@@ -38,7 +38,7 @@
 
                     <tr>
                         <td class="table_td_center">
-                            @Html.ActionLink(linkText: "Colocar numa exibição", actionName: "AttachPiece", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)
+                            @Html.ActionLink(linkText: "Colocar numa exibição", actionName: "SelectEventToAttachArtPice", controllerName: "Catalog", routeValues: new { artpieceId = @item.Id }, htmlAttributes: null)
                         </td>
                         <td style="text-align: center; vertical-align: middle;">@item.Name</td>
                         <td style="text-align: center; vertical-align: middle;">@item.ArtPieceState.Name</td>

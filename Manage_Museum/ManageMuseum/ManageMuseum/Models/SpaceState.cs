@@ -10,7 +10,6 @@ namespace ManageMuseum.Models
     {
         [Key]
         public int Id { get; set; }
-
         public string Name { get; set; }
 
         public ICollection<RoomMuseum> RoomMuseums { get; set; }
