@@ -295,9 +295,6 @@ C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseu
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.pdb
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.igor_3rd_migration.resources
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.tiago_1st.resources
-D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.Igor_4th_migration.resources
-C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.tiago_1st.resources
-C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
 C:\Users\jessi\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.jessicaSecond.resources
 C:\Users\jessi\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
