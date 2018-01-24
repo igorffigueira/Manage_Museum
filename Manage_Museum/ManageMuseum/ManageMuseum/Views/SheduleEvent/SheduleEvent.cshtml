@@ -15,7 +15,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-
+    
 <br/><h1 style="text-align:justify"> Formulário para Inserção de Eventos por parte de um Space Manager </h1><hr/>
 <h4 style="text-align: center"> Um Evento criado por um Space Manager fica automáticamente aprovado, não requer a aprovação por um Space Manager</h4><hr/>
 <div class="container">
@@ -45,33 +45,34 @@
 
                 <div class="form-group" id="Tipo_event">
                     <label>Tipo de Evento:</label>
-                    @Html.DropDownListFor(model => model.RoomName, (SelectList)ViewBag.EventType, "- Por favor selecione -", htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.EventType, (SelectList)ViewBag.EventType, "- Por favor selecione -", htmlAttributes: new { @class = "form-control" })
                </div>
 
                 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
                 <script type="text/javascript">
+                   
                     $(function () {
-                        $("#RoomName").change(function () {
+                        $("#EventType").change(function () {
                             switch ($(this).val()) {
-                                case "social":
-                                {
-                                        $("#espacos").addClass('hidden');
-                                        $("#espacosOutside").removeClass('hidden');
-                                    break;
-                                }
-                                case "exposicao":
-                                {
-                                        $("#espacos").removeClass('hidden');
-                                        $("#espacosOutside").addClass('hidden');
-                                    break;
-                                }
+                            case "social":
+                            {
+                                $("#espacos").addClass('hidden');
+                                $("#espacosOutside").removeClass('hidden');
+                                break;
+                            }
+                            case "exposicao":
+                            {
+                                $("#espacos").removeClass('hidden');
+                                $("#espacosOutside").addClass('hidden');
+                                break;
+                            }
                                 
-                                default:
-                                {
-                                        $("#espacos").addClass('hidden');
-                                        $("#espacosOutside").addClass('hidden');
-                                    break;
-                                }
+                            default:
+                            {
+                                $("#espacos").addClass('hidden');
+                                $("#espacosOutside").addClass('hidden');
+                                break;
+                            }
                             }
                             
                         });
