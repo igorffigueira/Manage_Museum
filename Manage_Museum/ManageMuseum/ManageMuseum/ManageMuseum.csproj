@@ -167,6 +167,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801231711590_jessica_1st.cs" />
+    <Compile Include="Migrations\201801231711590_jessica_1st.Designer.cs">
+      <DependentUpon>201801231711590_jessica_1st.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArtPiece.cs" />
     <Compile Include="Models\ArtPieceState.cs" />
@@ -180,6 +184,7 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoomMuseum.cs" />
     <Compile Include="Models\SpaceState.cs" />
+    <Compile Include="Models\SpaceViewModel.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -239,6 +244,7 @@
     <Content Include="Views\Catalog\AttachPiece.cshtml" />
     <Content Include="Views\Catalog\InsertArtPiece.cshtml" />
     <Content Include="Views\Catalog\ListArtPieces.cshtml" />
+    <Content Include="Views\Space\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -255,6 +261,11 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801231711590_jessica_1st.resx">
+      <DependentUpon>201801231711590_jessica_1st.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
