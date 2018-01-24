@@ -2,7 +2,14 @@
 @model ManageMuseum.Models.SpaceViewModel
 @{
     ViewBag.Title = "_MapSharedLayout";
-    Layout = "~/Views/Shared/_SpaceManagerSharedLayout.cshtml";
+    if (ViewBag.Role == "spacemanager")
+    {
+        Layout = "~/Views/Shared/_SpaceManagerSharedLayout.cshtml";
+    }else if (ViewBag.Role == "artpiecemanager")
+    {
+        Layout = "~/Views/Shared/_ArtPieceManegerSharedLayout.cshtml";
+    }
+
 
 }
 
@@ -24,85 +31,91 @@
 </head>
 <body>
     <h2>Museum Map</h2>
-    <div>
-        <div id="carousel" class="carousel slide" style="width:60%; height:auto; border-style: inset; padding:0;">
-            <ol class="carousel-indicators">
-                <li data-target="#carousel" data-slide-to="0" class="active" ></li>
-                <li data-target="#carousel" data-slide-to="1"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="~/Images/FloorOne.jpg" />
-                </div>
-                <div class="item">
-                    <img src="~/Images/FloorTwo.jpg" />
-                </div>
+<div>
+    <div id="carousel" class="carousel slide" style="width:60%; height:auto; border-style: inset; padding:0;">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active" ></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/Images/FloorOne.jpg" />
             </div>
-        </div>
-
-        <script>
-            $("carousel").carousel({
-                interval: 20000
-            });
-        </script>
-
-        <div style="width:60%; height:auto; border-style: inset; padding:0;" >
-            <div align="center">
-                <span class="jardim" title="Jardim das Orquídeas"><b>1</b></span>
-                <span class="jardim" title="Jardim do Louro"><b>2</b></span>
-                <span class="jardim" title="Jardim do Urzal"><b>3</b></span>
-                <span class="jardim" title="Jardim do Castanheiro"><b>4</b></span>
-                <span class="jardim" title="Jardim do Eucalipto"><b>5</b></span>
-                <span class="jardim" title="Jardim da Laurissilva"><b>6</b></span>
-                <span class="jardim" title="Jardim do Pinheiro"><b>7</b></span>
-                <span class="jardim" title="Jardim do Labirinto"><b>8</b></span>
-
-                <span class="rooms" title="Sala Santana"><b>9</b></span>
-                <span class="rooms" title="Sala Machico"><b>10</b></span>
-                <span class="rooms" title="Sala São Vicente"><b>11</b></span>
-                <span class="rooms" title="Sala Ribeira Brava"><b>12</b></span>
-                <span class="rooms" title="Sala Câmara de Lobos"><b>13</b></span>
-                <span class="rooms" title="Sala Funchal"><b>14</b></span>
-                <span class="rooms" title="Sala Ponta do Sol"><b>15</b></span>
-                <span class="rooms" title="Sala Calheta"><b>16</b></span>
-                <span class="rooms" title="Sala Porto Moniz"><b>17</b></span>
-                <span class="rooms" title="Sala Santa Cruz"><b>18</b></span>
-                <span class="rooms" title="Sala Porto Santo"><b>19</b></span>
-                <span class="rooms" title="Sala Desertas"><b>20</b></span>
+            <div class="item">
+                <img src="~/Images/FloorTwo.jpg" />
             </div>
         </div>
     </div>
-    @using (Html.BeginForm())
+
+    <script>
+        $("carousel").carousel({
+            interval: 20000
+        });
+    </script>
+
+    <div style="width:60%; height:auto; border-style: inset; padding:0;" >
+        <div align="center">
+            <span class="jardim" title="Jardim das Orquídeas"><b>1</b></span>
+            <span class="jardim" title="Jardim do Louro"><b>2</b></span>
+            <span class="jardim" title="Jardim do Urzal"><b>3</b></span>
+            <span class="jardim" title="Jardim do Castanheiro"><b>4</b></span>
+            <span class="jardim" title="Jardim do Eucalipto"><b>5</b></span>
+            <span class="jardim" title="Jardim da Laurissilva"><b>6</b></span>
+            <span class="jardim" title="Jardim do Pinheiro"><b>7</b></span>
+            <span class="jardim" title="Jardim do Labirinto"><b>8</b></span>
+
+            <span class="rooms" title="Sala Santana"><b>9</b></span>
+            <span class="rooms" title="Sala Machico"><b>10</b></span>
+            <span class="rooms" title="Sala São Vicente"><b>11</b></span>
+            <span class="rooms" title="Sala Ribeira Brava"><b>12</b></span>
+            <span class="rooms" title="Sala Câmara de Lobos"><b>13</b></span>
+            <span class="rooms" title="Sala Funchal"><b>14</b></span>
+            <span class="rooms" title="Sala Ponta do Sol"><b>15</b></span>
+            <span class="rooms" title="Sala Calheta"><b>16</b></span>
+            <span class="rooms" title="Sala Porto Moniz"><b>17</b></span>
+            <span class="rooms" title="Sala Santa Cruz"><b>18</b></span>
+            <span class="rooms" title="Sala Porto Santo"><b>19</b></span>
+            <span class="rooms" title="Sala Desertas"><b>20</b></span>
+        </div>
+    </div>
+</div>
+    @if (ViewBag.Role == "spacemanager")
     {
-    <div class="form-container">
-        <div class="form-horizontal">
-            <h4>Altere a capacidade de peças nas salas</h4>
-            <h5>Escolha a sala que pretende alterar:</h5>
+        using (Html.BeginForm())
+         {
+             <div class="form-container">
+                 <div class="form-horizontal">
+                     <h4>Altere a capacidade de peças nas salas</h4>
+                     <h5>Escolha a sala que pretende alterar:</h5>
 
 
-            <div class="form-group">
-                <label class="control-label col-md-2"> Sala </label>
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.RoomName, (SelectList)ViewBag.RoomMuseums, "- Por favor selecione -", htmlAttributes: new { @class = "form-control" })
-                   @* @Html.ValidationMessageFor(model => model.RoomName, "", new { @class = "text-danger" })*@
-                </div>
-            </div>
+                     <div class="form-group">
+                         <label class="control-label col-md-2"> Sala </label>
+                         <div class="col-md-10">
+                             @Html.DropDownListFor(model => model.RoomName, (SelectList)ViewBag.RoomMuseums, "- Por favor selecione -", htmlAttributes: new { @class = "form-control" })
+                             @* @Html.ValidationMessageFor(model => model.RoomName, "", new { @class = "text-danger" })*@
+                         </div>
+                     </div>
 
-            <div class="form-group">
-                <label class="control-label col-md-2"> Capacidade da Sala </label>
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MaxRoomArtPieces, (string) ViewBag.capacity,new { @min = "1", @max = "100", @type = "number", htmlAttributes = new { @class = "form-control"}})
-                    @*@Html.ValidationMessageFor(model => model.SumRoomArtPieces, "", new { @class = "text-danger" })*@
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Atribuir novos espaços" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    </div>
-     }
+                     <div class="form-group">
+                         <label class="control-label col-md-2"> Capacidade da Sala </label>
+                         <div class="col-md-10">
+                             @Html.EditorFor(model => model.MaxRoomArtPieces, (string) ViewBag.capacity,new { @min = "1", @max = "100", @type = "number", htmlAttributes = new { @class = "form-control"}})
+                             @*@Html.ValidationMessageFor(model => model.SumRoomArtPieces, "", new { @class = "text-danger" })*@
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <div class="col-md-offset-2 col-md-10">
+                             <input type="submit" value="Atribuir novos espaços" class="btn btn-default" />
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         }
+    }
+     
+
+
    </body>
 </html>
 

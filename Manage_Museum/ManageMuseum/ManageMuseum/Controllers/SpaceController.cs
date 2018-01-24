@@ -16,7 +16,9 @@ namespace ManageMuseum.Controllers
             var rooms = db.RoomMuseums.ToList();
             ViewBag.RoomMuseums = new SelectList(rooms, "Name", "Name");
             ViewBag.capacity = TempData["capacity"];
+            ViewBag.Role = Request.Cookies["Role"].Value;
             return View();
+
         }
 
         [HttpPost]
