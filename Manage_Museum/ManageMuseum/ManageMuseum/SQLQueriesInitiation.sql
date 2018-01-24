@@ -1,4 +1,4 @@
-﻿ Insert INTO ROLES(Name) VALUES ('spacemanager');
+﻿Insert INTO ROLES(Name) VALUES ('spacemanager');
 Insert INTO ROLES(Name) VALUES ('artpiecemanager');
 
 Insert INTO USERACCOUNTS(FirstName,LastName,Username,Password,Role_Id) VALUES ('Jessica','Franco','jsfranco','igualparatodos','1');

@@ -81,13 +81,13 @@
                 @{ int sizeRoomList = ViewBag.sizeNumberRooms; }  @*Number of Rooms available*@
                 <div class="form-group hidden" id="espacos">
                     <label>Lista de Salas: </label><h6>Para selecionar múltiplas salas usar (CTRL + Click) </h6>
-                    @Html.ListBoxFor(model => model.SpacesList, (SelectList)ViewBag.ListSpaces, new { Multiple = "multiple", size = @sizeRoomList, @class = "form-control" })
+                    @Html.ListBoxFor(model => model.SpacesList, (SelectList)ViewBag.ListSpaces, new { Multiple = "multiple", size = sizeRoomList, @class = "form-control" })
                 </div>
 
                 @{ int sizeOutSideList = ViewBag.sizeNumberOutSideSpaces; }   @*Number of OutSideSpaces available*@
                 <div class="form-group hidden" id="espacosOutside">
                     <label>Lista de Espaços exteriores:</label><h6>Para selecionar múltiplos espaços usar (CTRL + Click) </h6>
-                    @Html.ListBoxFor(model => model.OutSideSpaces, (SelectList)ViewBag.ListOutSideSpaces, new { Multiple = "multiple", size = @sizeOutSideList, @class = "form-control" })
+                    @Html.ListBoxFor(model => model.OutSideSpaces, (SelectList)ViewBag.ListOutSideSpaces, new { Multiple = "multiple", size = sizeOutSideList, @class = "form-control" })
                 </div>
 
                 <label>Descrição:</label><h6>Descreva o seu evento de forma sucinta. </h6>

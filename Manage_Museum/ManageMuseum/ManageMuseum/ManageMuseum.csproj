@@ -163,6 +163,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SheduleEventController.cs" />
+    <Compile Include="Controllers\SpaceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +180,7 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoomMuseum.cs" />
     <Compile Include="Models\SpaceState.cs" />
+    <Compile Include="Models\SpaceViewModel.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,6 +194,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\FloorOne.jpg" />
+    <Content Include="Images\FloorTwo.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -235,6 +239,7 @@
     <Content Include="Views\SheduleEvent\ApprovedExhibition.cshtml" />
     <Content Include="Views\Catalog\InsertArtPiece.cshtml" />
     <Content Include="Views\Catalog\ListArtPieces.cshtml" />
+    <Content Include="Views\Space\Map.cshtml" />
     <Content Include="Views\Catalog\SelectEventToAttachArtPice.cshtml" />
     <Content Include="Views\Catalog\SelectRoomToAttachArtPiece.cshtml" />
   </ItemGroup>
