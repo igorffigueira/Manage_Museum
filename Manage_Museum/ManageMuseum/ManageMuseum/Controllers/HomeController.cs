@@ -15,9 +15,15 @@ namespace ManageMuseum.Controllers
         public ActionResult Index()
         {
             EndandStartEvents();
+            //EventoExibicaoTest();
             return RedirectToAction("Index1", "Home");
 
         }
+
+        //public void EventoExibicaoTest()
+        //{
+        //    var evento = db.Events.Single(d=>d.Id == )
+        //}
 
         public ActionResult About()
         {
@@ -35,6 +41,7 @@ namespace ManageMuseum.Controllers
 
         public void EndandStartEvents()
         {
+
             // Defines past events as closed, and the rooms associated with those events are again free
             var now = DateTime.Now.Date;
             var artPieceExposicaoState = db.ArtPieceStates.Include(d=>d.ArtPieces).Single(s=>s.Name == "exposicao");
@@ -67,7 +74,8 @@ namespace ManageMuseum.Controllers
 
             
             // Defines events in exhibition, and the rooms associated with those events busy
-            var SumArtpiecesInAllRoomsOfEvent = 0;
+            var sumArtPiecesInRooms = 0;
+            var sumArtPiecesInEvent = 0;
             var getEventAcceptedState = db.EventStates.Include(d=>d.Events).First(d => d.Name == "aceites");
             var NewEventsNotInExihibtion = db.Events.Include(d=>d.EventType).Include(d=>d.OutSideSpaces).Include(d=>d.UserAccount).Include(d => d.EventState).Where(d => d.StartDate <= now && d.EventState.Id == getEventAcceptedState.Id).ToList();
             var getRoomBusyState = db.SpaceStates.Include(d=>d.RoomMuseums).First(d => d.Name == "ocupada"); // Estado de sala ocupada
@@ -77,30 +85,21 @@ namespace ManageMuseum.Controllers
                 var getEventsRooms = db.RoomMuseums.Include(d=>d.ArtPieces).Include(d => d.Event).Where(d => d.Event.Id == _event.Id).ToList();
                 foreach (var _room_ in getEventsRooms) // coloca todas as salas associadas ao evento nas condicoes acima, com o estado de salas ocupado
                 {
-                    if (_room_.SumRoomArtPieces < 1)
-                    {
-                        _room_.SumRoomArtPieces = 0;
-                        _room_.SpaceState = getRoomFreeState;
-                        _event.SumArtPieces = 0;
-                        _event.EventState = getEventFinishedState;
-                        db.SaveChanges();
-                    }
-                    else
+                    if (_room_.SumRoomArtPieces > 0)
                     {
                         var ArtpiecesInRoom = db.ArtPieces.Where(d => d.RoomMuseum.Id == _room_.Id).ToList();
                         foreach (var artpiece in ArtpiecesInRoom)
                         {
-                            _room_.SumRoomArtPieces += 1;
-                            _event.SumArtPieces += 1;
-                            _room_.SpaceState = getRoomBusyState;
-                            _event.EventState = getEventExhibitionState;
                             artpiece.ArtPieceState = artPieceExposicaoState;
+                            _room_.SumRoomArtPieces += 1;
                             db.SaveChanges();
                         }
-                        
                     }
+                    sumArtPiecesInRooms += _room_.SumRoomArtPieces;
+                    //_room_.SpaceState = getRoomBusyState;
                     db.SaveChanges();
                 }
+                sumArtPiecesInEvent += sumArtPiecesInRooms;
 
                 //OutSideSpaces
                 var getEventOutSideSpaces = db.OutSideSpaces.Include(d => d.Event).Where(d => d.Event.Id == _event.Id).ToList();
@@ -108,13 +107,47 @@ namespace ManageMuseum.Controllers
                 {
                     _outSideSpace_.SpaceState = getRoomBusyState;
                     db.SaveChanges();
+                }
+                if (getEventOutSideSpaces.Count > 0)
+                {
                     _event.SumArtPieces = 0;
                     _event.EventState = getEventExhibitionState;
+                    db.SaveChanges();
                 }
-                
-                db.SaveChanges();                
+                else if (sumArtPiecesInEvent > 0)
+                {
+                    var getSalasEvent = db.RoomMuseums.Include(d => d.ArtPieces).Include(d => d.Event).Where(d => d.Event.Id == _event.Id).ToList();
+                    foreach (var salaEvent in getSalasEvent)
+                    {
+                        salaEvent.SpaceState = getRoomBusyState;
+                        db.SaveChanges();
+                    }
+                    _event.SumArtPieces = sumArtPiecesInEvent;
+                    _event.EventState = getEventExhibitionState;
+                    db.SaveChanges();
+                }
+                else 
+                {
+                    var getSalas = db.RoomMuseums.Include(d => d.ArtPieces).Include(d => d.Event).Where(d => d.Event.Id == _event.Id).ToList();
+                    foreach (var sala in getSalas)
+                    {
+                        sala.SpaceState.Name = "livre";
+                        sala.SumRoomArtPieces = 0;
+                        var getPecas = db.ArtPieces.Where(d => d.RoomMuseum.Id == sala.Id).ToList();
+                        foreach (var peca in getPecas)
+                        {
+                            peca.ArtPieceState.Name = "armazem";
+                            db.SaveChanges();
+                        }
+                        db.SaveChanges();
+                    }
+                    _event.SumArtPieces = 0;
+                    _event.EventState = getEventFinishedState;
+                    var TimeNow = DateTime.Now;
+                    _event.EnDate = TimeNow;
+                    db.SaveChanges();
+                }
             }
-
         }
 
         public ActionResult Index1()
