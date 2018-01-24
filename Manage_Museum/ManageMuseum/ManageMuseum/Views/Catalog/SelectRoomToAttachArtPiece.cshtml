@@ -55,9 +55,8 @@
 
             @foreach (var item in (List<RoomMuseum>)ViewBag.RoomsExhibition)
             {
-                //foreach(var item in room)
-                //{
-                    @*if (item.SumRoomArtPieces > item.MaxRoomArtPieces)   //FALTA Inserir número máximo de peças no model RoomMuseum
+               
+                    if (item.SumRoomArtPieces >= item.MaxRoomArtPieces)   
                         {
                             <tr>
                                 <td> - </td>
@@ -68,7 +67,7 @@
                             </tr>
                         }
                         else
-                        {*@
+                        {
                             <tr>
                                 <td>
                                     @Html.ActionLink(linkText: "Inserir", actionName: "AttachArtPiece", controllerName: "Catalog", routeValues: new { artpieceId = @ViewBag.PieceSelected.Id, eventId = @ViewBag.ExhibitionSelected.Id, roomId = @item.Id }, htmlAttributes: null)
@@ -78,8 +77,8 @@
                                 <td>@item.SumRoomArtPieces</td>
                                 <td>@item.Floor</td>
                             </tr>
-                        @*}*@
-                @*}*@
+                        }
+                
             }
         </table>
     </div>
