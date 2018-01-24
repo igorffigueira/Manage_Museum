@@ -16,43 +16,13 @@ namespace ManageMuseum.Controllers
         // GET: SheduleEvent
         public ActionResult SheduleEvent()
         {
-            
-
-            var now = DateTime.Now.Date;
-            var getEventExhibitionState = db.EventStates.First(d => d.Name == "exibicao");
-            var oldEventsOnExihibtion = db.Events.Include(d => d.EventState).Where(d => d.EnDate < now && d.EventState.Id == getEventExhibitionState.Id).ToList();
-            var getFreeState = db.SpaceStates.First(d => d.Name == "livre");
-            var getEventFinishedState = db.EventStates.First(d => d.Name == "encerrado");
-            foreach (var _event in oldEventsOnExihibtion)  // Coloca todos os eventos que o endDate já ocorreu, e que ainda se encontram em exibicao, com o estado encerrado
-            {
-                var getEventRooms = db.RoomMuseums.Include(d => d.Event).Where(d => d.Event.Id == _event.Id).ToList();
-                foreach (var _room in getEventRooms) // coloca todas as salas associadas ao evento nas condicoes acima, com o estado de salas livres
-                {
-                    _room.SumRoomArtPieces = 0;
-                    _room.SpaceState = getFreeState;
-
-                    db.SaveChanges();
-                }
-                var getEventOutSideSpaces = db.OutSideSpaces.Include(d => d.Event).Where(d => d.Event.Id == _event.Id).ToList();
-                foreach (var _outSideSpace in getEventOutSideSpaces) // coloca todos os espaços exteriores associados ao evento nas condicoes acima, com o estado de espaços livres
-                {
-                    _outSideSpace.SpaceState = getFreeState;
-
-                    db.SaveChanges();
-                }
-
-                _event.SumArtPieces = 0;
-                _event.EventState = getEventFinishedState;
-
-                db.SaveChanges();
-            }
-            
+            var getRoomFreeState = db.SpaceStates.First(d => d.Name == "livre"); // Estado de sala livre
             var getListEventTypes = db.EventTypes.ToList(); // Lista dos tipos de evento (social ou exposição)
             ViewBag.EventType = new SelectList(getListEventTypes, "Name", "Name");
-            var getListFreeRooms = db.RoomMuseums.Where(d => d.SpaceState.Name == getFreeState.Name).ToList();  // Salas com o estado livre
+            var getListFreeRooms = db.RoomMuseums.Where(d => d.SpaceState.Name == getRoomFreeState.Name).ToList();  // Salas com o estado livre
             ViewBag.ListSpaces = new SelectList(getListFreeRooms, "Name","Name");
             ViewBag.sizeNumberRooms = getListFreeRooms.Count;
-            var getListOutSideSpaces = db.OutSideSpaces.Where(d => d.SpaceState.Name == getFreeState.Name).ToList();  // Salas com o estado livre
+            var getListOutSideSpaces = db.OutSideSpaces.Where(d => d.SpaceState.Name == getRoomFreeState.Name).ToList();  // Salas com o estado livre
             ViewBag.ListOutSideSpaces = new SelectList(getListOutSideSpaces, "Name", "Name");
             ViewBag.sizeNumberOutSideSpaces = getListOutSideSpaces.Count;
 
