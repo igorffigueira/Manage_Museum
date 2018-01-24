@@ -79,7 +79,14 @@ namespace ManageMuseum.Controllers
 
         public ActionResult LogOut()
         {
-            Response.Cookies.Clear();
+
+            if (Request.Cookies["Role"] != null)
+            {
+                HttpCookie myCookie = new HttpCookie("Role");
+                myCookie.Expires = DateTime.Now.AddDays(-1d);
+                Response.Cookies.Add(myCookie);
+            }
+
             return RedirectToAction("ConfirmLogin", "Login");
         }
     }

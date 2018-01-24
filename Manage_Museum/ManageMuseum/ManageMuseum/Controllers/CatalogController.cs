@@ -16,21 +16,21 @@ namespace ManageMuseum.Controllers
 
         private OurContectDb db = new OurContectDb();
 
-        
+        [ArtPieceAuthorize]
         public ActionResult ListArtPieces()
         {
             var query = db.ArtPieces.Include(d => d.ArtPieceState).Include(v => v.RoomMuseum).ToList();
             ViewBag.Data = query;
             return View();
         }
-
+        [ArtPieceAuthorize]
         public ActionResult InsertArtPiece()
         {
             var query = db.ArtPieces.Include(d => d.ArtPieceState).Include(v => v.RoomMuseum).ToList();
             ViewBag.Data = query;
             return View();
         }
-
+        [ArtPieceAuthorize]
         [HttpPost]
         public ActionResult InsertArtPiece(ArtPiece artpiece)
         {
@@ -45,7 +45,7 @@ namespace ManageMuseum.Controllers
           return Redirect("ListArtPieces");
           
         }
-
+        [ArtPieceAuthorize]
         public ActionResult RemovePiece(string artpieceId)
         {
             var pieceId = Int32.Parse(artpieceId); // Convert artpieceId from string to int
@@ -72,7 +72,7 @@ namespace ManageMuseum.Controllers
             
             return Redirect("ListArtPieces");;
         }
-
+        [ArtPieceAuthorize]
         public ActionResult SelectEventToAttachArtPice(string artpieceId)
         {
             var pieceId = Int32.Parse(artpieceId); // Convert artpieceId from string to int
@@ -85,7 +85,7 @@ namespace ManageMuseum.Controllers
             ViewBag.ExhibitionsAccepted = ExhibitionAccepted;
             return View();
         }
-
+        [ArtPieceAuthorize]
         public ActionResult SelectRoomToAttachArtPiece(string artpieceID, string eventId)
         {
             var getPieceId = Int32.Parse(artpieceID); // Convert artpieceId from string to int
@@ -98,7 +98,7 @@ namespace ManageMuseum.Controllers
             ViewBag.RoomsExhibition = getRoomsEventSelected;
             return View();
         }
-
+        [ArtPieceAuthorize]
         public ActionResult AttachArtPiece(string artpieceID, string eventId, string roomId)
         {
             var getPieceId = Int32.Parse(artpieceID); // Convert artpieceId from string to int

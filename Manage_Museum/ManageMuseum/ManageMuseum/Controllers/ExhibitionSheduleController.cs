@@ -12,6 +12,7 @@ namespace ManageMuseum.Controllers
     {
         private OurContectDb db = new OurContectDb();
         // GET: SheduleExhibition
+        [ArtPieceAuthorize]
         public ActionResult SheduleExhibition()
         {
             // Defines past events as closed, and the rooms associated with those events are again free
@@ -43,6 +44,7 @@ namespace ManageMuseum.Controllers
 
             return View();
         }
+        [ArtPieceAuthorize]
         [HttpPost]
         public ActionResult SheduleExhibition(EventViewModel events)
         {
@@ -73,14 +75,14 @@ namespace ManageMuseum.Controllers
            
             
         }
-
+        [SpaceManagerAuthorize]
         public ActionResult ShowRequestsList()
         {
             var query = db.Events.Include(d => d.EventState).Include(d => d.EventType).Where(d => d.EventState.Name == "poraprovar").ToList();
             ViewBag.Data = query;
             return View();
         }
-
+        [SpaceManagerAuthorize]
         public ActionResult EventRequestApprove(string eventId)
         {
             var EventIdApprove = Int32.Parse(eventId);
@@ -93,7 +95,7 @@ namespace ManageMuseum.Controllers
             //FALTA COLOCAR AQUI UMA MENSAGEM DE AVISO QUE O PEDIDO DE EVENTO FOI APROVADO
             return Redirect("ShowRequestsList");
         }
-
+        [SpaceManagerAuthorize]
         public ActionResult EventRequestDetails(string eventId)
         {
             var EventIdSelected = Int32.Parse(eventId);
@@ -112,7 +114,7 @@ namespace ManageMuseum.Controllers
 
             return View();
         }
-
+        [SpaceManagerAuthorize]
         public ActionResult EventRequestReject(string eventId)
         {
             var EventIdReject = Int32.Parse(eventId);

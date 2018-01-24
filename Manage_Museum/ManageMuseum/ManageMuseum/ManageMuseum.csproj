@@ -169,6 +169,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArtPiece.cs" />
+    <Compile Include="Models\ArtPieceAuthorize.cs" />
     <Compile Include="Models\ArtPieceState.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventState.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Models\OutSideSpace.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoomMuseum.cs" />
+    <Compile Include="Models\SpaceManagerAuthorize.cs" />
     <Compile Include="Models\SpaceState.cs" />
     <Compile Include="Models\SpaceViewModel.cs" />
     <Compile Include="Models\UserAccount.cs" />

@@ -14,6 +14,7 @@ namespace ManageMuseum.Controllers
     {
         private OurContectDb db = new OurContectDb();
         // GET: SheduleEvent
+        [SpaceManagerAuthorize]
         public ActionResult SheduleEvent()
         {
             
@@ -60,7 +61,7 @@ namespace ManageMuseum.Controllers
            
             return View();
         }
-
+        [ArtPieceAuthorize]
         public ActionResult ApprovedExhibition()
         {
             var userId = Int32.Parse(Request.Cookies["UserId"].Value);
@@ -70,14 +71,14 @@ namespace ManageMuseum.Controllers
             ViewBag.EventsToShow = eventsToShow;
             return View();
         }
-
+        [ArtPieceAuthorize]
         [HttpPost]
         public ActionResult ApprovedExhibition(EventViewModel even)
         {
             return View();
         }
 
-
+        [SpaceManagerAuthorize]
         [HttpPost]
         public ActionResult SheduleEvent(EventViewModel events)
         {

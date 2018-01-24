@@ -9,6 +9,7 @@ using ManageMuseum.Models;
 
 namespace ManageMuseum.Controllers
 {
+    [SpaceManagerAuthorize]
     public class RegisterController : Controller
     {
         private OurContectDb db = new OurContectDb();
@@ -18,6 +19,7 @@ namespace ManageMuseum.Controllers
             ViewBag.Roles = new SelectList(roles,"Name","Name");
             return View();
         }
+        [SpaceManagerAuthorize]
         [HttpPost]
         public ActionResult Register(RegisterViewModel userAccount)
         {
