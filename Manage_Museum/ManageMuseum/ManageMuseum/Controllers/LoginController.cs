@@ -87,7 +87,7 @@ namespace ManageMuseum.Controllers
                 Response.Cookies.Add(myCookie);
             }
 
-            return RedirectToAction("ConfirmLogin", "Login");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
