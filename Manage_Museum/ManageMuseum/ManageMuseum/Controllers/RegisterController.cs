@@ -17,8 +17,10 @@ namespace ManageMuseum.Controllers
         {
             var roles = db.Roles.ToList();
             ViewBag.Roles = new SelectList(roles,"Name","Name");
+
             return View();
         }
+
         [SpaceManagerAuthorize]
         [HttpPost]
         public ActionResult Register(RegisterViewModel userAccount)

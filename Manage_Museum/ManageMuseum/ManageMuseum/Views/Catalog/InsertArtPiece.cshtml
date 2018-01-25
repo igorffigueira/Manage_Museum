@@ -1,79 +1,76 @@
-﻿@model ManageMuseum.Models.ArtPiece
+﻿
+@model ManageMuseum.Models.ArtPiece
 @{
     ViewBag.Title = "InsertArtPiece";
     Layout = "~/Views/Shared/_ArtPieceManegerSharedLayout.cshtml";
 }
 <head>
     <title>@ViewBag.Title</title>
-    </head>
-    <body>
-          <br /><h1 style="text-align:justify"> Titulo</h1><hr />
-            <h4 style="text-align: center"> SubTitulo</h4><hr />
-            <br /><h1 style="text-align:justify"> Inserção de uma nova peça de arte ao catálogo</h1><hr />
-            <h4 style="text-align: center"> Após a inserção de uma peça com sucesso, a peça irá estar em armazem.</h4><hr />
-        <div class="container">
-                    @using (Html.BeginForm())
-                        {
-                @Html.AntiForgeryToken()
-                
-                            <div class="form-horizontal">
-                 <h4>Insertion of new ArtPiece</h4>
-                 <hr />
-                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                 <div class="form-group">
-                     @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                     <div class="col-md-10">
-                         @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                     </div>
-                 </div>
- 
-                 <div class="form-group">
-                     @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                     <div class="col-md-10">
-                         @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                         @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                     </div>
-                 </div>
- 
-                 <div class="form-group">
-                     @Html.LabelFor(model => model.Dimension, htmlAttributes: new { @class = "control-label col-md-2" })
-                     <div class="col-md-10">
-                         @Html.EditorFor(model => model.Dimension, new { htmlAttributes = new { @class = "form-control" } })
-                         @Html.ValidationMessageFor(model => model.Dimension, "", new { @class = "text-danger" })
-                     </div>
-                 </div>
- 
-                 <div class="form-group">
-                     <label class = "control-label col-md-2"> Date</label>
-                     <div class="col-md-10">
-                         @Html.EditorFor(model => model.Year, new {htmlAttributes = new {@class = "form-control", @type = "date"}})
-                         @Html.ValidationMessageFor(model => model.Year, "", new {@class = "text-danger"})
-                     </div>
-                 </div>
- 
-                 <div class="form-group">
-                     @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
-                     <div class="col-md-10">
-                         @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
-                         @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
-                     </div>
-                 </div>
- 
-                 <div class="form-group">
-                     <div class="col-md-offset-2 col-md-10">
-                         <input type = "submit" value="Create" class="btn btn-default" />
-                     </div>
-                 </div>
-             </div>
-         }
-      </div>
-      <div>
-          <hr class="hrStyle">
-          <p>
- -            @*@Html.ActionLink(linkText: "Back to the #################3", actionName: "ShowRequestsList")*@
-             @Html.ActionLink("Back to List", actionName: "ListArtPieces")
-            </p>
-        </div>
-    </body>
+</head>
+<body>
+    <br /><h1 style="text-align:justify"> Formulário de inserção de uma nova peça de arte ao catálogo</h1><hr />
+    <h4 style="text-align: center"> Após a inserção de uma peça com sucesso, a peça irá estar em armazem.</h4><hr />
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
+            <div class="form-horizontal">
+                <h4>Inserção de uma nova peça de arte</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2"> Nome: </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2"> Descrição: </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2"> Dimensão: </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Dimension, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Dimension, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2"> Data de criação:</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                        @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2"> Criador / Autor: </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Inserir no catálogo" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div>
+        <hr class="hrStyle">
+        <p>
+            @Html.ActionLink("Voltar para o Catálogo", actionName: "ListArtPieces")
+        </p><br />
+    </div>
+</body>
