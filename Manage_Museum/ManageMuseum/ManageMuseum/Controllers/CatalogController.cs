@@ -101,27 +101,25 @@ namespace ManageMuseum.Controllers
         [ArtPieceAuthorize]
         public ActionResult AttachArtPiece(string artpieceID, string eventId, string roomId)
         {
-            var getPieceId = Int32.Parse(artpieceID); // Convert artpieceId from string to int
-            var getPieceDataFromId = db.ArtPieces.Include(d => d.RoomMuseum).Include(d => d.ArtPieceState).First(d => d.Id == getPieceId);
             var getEventId = Int32.Parse(eventId); // Convert artpieceId from string to int
-            var getSelectedEventData = db.Events.Include(d => d.EventState).Include(d => d.RoomMuseums).Include(d => d.EventType).Include(d => d.OutSideSpaces).Include(v => v.UserAccount).First(d => d.Id == getEventId);
             var getRoomtId = Int32.Parse(roomId); // Convert roomID from string to int
+            var getPieceId = Int32.Parse(artpieceID); // Convert artpieceId from string to int
+
+            var getSelectedEventData = db.Events.Include(d => d.EventState).Include(d => d.RoomMuseums).Include(d => d.EventType).Include(d => d.OutSideSpaces).Include(v => v.UserAccount).Single(d => d.Id == getEventId);
+            
+            var getPieceDataFromId = db.ArtPieces.Include(d => d.RoomMuseum).Include(d => d.ArtPieceState).First(d => d.Id == getPieceId);
+    
             var getSelectedRoomData = db.RoomMuseums.Include(d=>d.ArtPieces).Include(d=>d.SpaceState).First(d => d.Id == getRoomtId);
 
             var getPieceStorageState = db.ArtPieceStates.Include(d => d.ArtPieces).First(s => s.Name == "exposicao");  //Obter estado de peça em exibição
 
-            //if (getSelectedRoomData.SumRoomArtPieces < getSelectedRoomData.MaxRoomArtPieces)
-            //{
                 getPieceDataFromId.ArtPieceState = getPieceStorageState;
-                //var test = getPieceDataFromId.RoomMuseum.ArtPieces;
-                //if (!test.Contains(getPieceDataFromId))
-                //{
+
+                    getPieceDataFromId.RoomMuseum = getSelectedRoomData;
                     getPieceDataFromId.RoomMuseum.ArtPieces.Add(getPieceDataFromId);
                     getSelectedRoomData.SumRoomArtPieces += 1;  // Incrementar 1 peça à soma de peças na sala
                     getSelectedEventData.SumArtPieces += 1;  // Incrementar 1 peça à soma de peças no evento
-                //}
-            //}
-              
+          
             db.SaveChanges();
 
             return Redirect("ListArtPieces");

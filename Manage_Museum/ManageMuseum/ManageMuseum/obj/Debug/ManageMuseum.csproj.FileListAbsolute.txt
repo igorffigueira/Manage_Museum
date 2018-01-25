@@ -296,3 +296,5 @@ C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseu
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.igor_3rd_migration.resources
 C:\Users\jessi\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.jessicaSecond.resources
 C:\Users\jessi\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.tiago_1st.resources
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
