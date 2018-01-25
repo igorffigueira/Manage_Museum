@@ -36,9 +36,8 @@ namespace ManageMuseum.Controllers
         {
             var estadoPeca = db.ArtPieceStates.Include(d => d.ArtPieces).First(d => d.Name == "armazem");
             artpiece.ArtPieceState = estadoPeca;
-            var roomDefault = db.RoomMuseums.Include(d => d.Event).Include(d => d.SpaceState).First();
-            artpiece.RoomMuseum = roomDefault;
-            var newArtPiece = new ArtPiece() { Name = artpiece.Name, Description = artpiece.Description, Dimension = artpiece.Dimension, RoomMuseum = artpiece.RoomMuseum, Year = artpiece.Year, Author = artpiece.Author, ArtPieceState = artpiece.ArtPieceState };
+            
+            var newArtPiece = new ArtPiece() { Name = artpiece.Name, Description = artpiece.Description, Dimension = artpiece.Dimension, RoomMuseum = null, Year = artpiece.Year, Author = artpiece.Author, ArtPieceState = artpiece.ArtPieceState};
             
           db.ArtPieces.Add(newArtPiece);
           db.SaveChanges();
