@@ -57,7 +57,7 @@ namespace ManageMuseum.Controllers
             var eventData = db.Events.First(d => d.Id == eventId);  //Get data from one event by ID
 
             pieceData.ArtPieceState = getPieceStorageState;
-
+            pieceData.RoomMuseum = null;
             if (roomData.SumRoomArtPieces > 0)  // verify if number of pieces in the room is greater than 0
             {
                 roomData.SumRoomArtPieces -= 1; // remove 1 art piece from 1 room
