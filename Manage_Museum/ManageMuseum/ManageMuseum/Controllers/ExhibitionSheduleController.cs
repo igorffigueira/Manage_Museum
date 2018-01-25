@@ -86,7 +86,12 @@ namespace ManageMuseum.Controllers
         public ActionResult EventRequestApprove(string eventId)
         {
             var EventIdApprove = Int32.Parse(eventId);
-
+            var rooms= db.RoomMuseums.Where(s => s.Event.Id == EventIdApprove).ToList();
+            var roomState = db.SpaceStates.Single(s => s.Name == "ocupada");
+            foreach (var room in rooms)
+            {
+                room.SpaceState = roomState;
+            }
             EventState approvedState = db.EventStates.First(d => d.Name == "aceites");
             
             Event update = db.Events.Include(v => v.EventState).First(d => d.Id == EventIdApprove);

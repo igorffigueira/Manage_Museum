@@ -52,8 +52,8 @@ namespace ManageMuseum.Controllers
             var getPieceStorageState = db.ArtPieceStates.Include(d=>d.ArtPieces).First(s=>s.Name == "armazem");
             var pieceData = db.ArtPieces.Include(d=>d.RoomMuseum).Include(b=>b.ArtPieceState).First(d => d.Id == pieceId);  //Get data from one art piece by ID
             var getRoomId = pieceData.RoomMuseum.Id;
-            var roomData = db.RoomMuseums.First(v => v.Id == getRoomId);  //Get data from one room by ID
-            var eventId = roomData.Id;
+            var roomData = db.RoomMuseums.Include(d=>d.Event).First(v => v.Id == getRoomId);  //Get data from one room by ID
+            var eventId = roomData.Event.Id;
             var eventData = db.Events.First(d => d.Id == eventId);  //Get data from one event by ID
 
             pieceData.ArtPieceState = getPieceStorageState;
