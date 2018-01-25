@@ -17,6 +17,8 @@ namespace ManageMuseum.Controllers
         [SpaceManagerAuthorize]
         public ActionResult SheduleEvent()
         {
+
+
             var getRoomFreeState = db.SpaceStates.First(d => d.Name == "livre"); // Estado de sala livre
             var getListEventTypes = db.EventTypes.ToList(); // Lista dos tipos de evento (social ou exposição)
             ViewBag.EventType = new SelectList(getListEventTypes, "Name", "Name");
