@@ -9,7 +9,7 @@ namespace ManageMuseum.Models
     public class SpaceViewModel
     {
         //[Required(ErrorMessage = "Room is Required")]
-        public string RoomName { get; set; }
+        public int RoomId { get; set; }
 
         [Required(ErrorMessage = "Capacity of a room is Required")]
         [Range(1, 100, ErrorMessage = "The number must between 1 and 100")]

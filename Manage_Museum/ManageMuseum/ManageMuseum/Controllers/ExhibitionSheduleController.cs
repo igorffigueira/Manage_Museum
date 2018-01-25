@@ -15,27 +15,7 @@ namespace ManageMuseum.Controllers
         [ArtPieceAuthorize]
         public ActionResult SheduleExhibition()
         {
-            // Defines past events as closed, and the rooms associated with those events are again free
-            var now = DateTime.Now.Date;
-            var getEventExhibitionState = db.EventStates.First(d => d.Name == "exibicao");
-            var oldEventsOnExihibtion = db.Events.Include(d => d.EventState).Where(d => d.EnDate < now && d.EventState.Id == getEventExhibitionState.Id).ToList();
             var getRoomFreeState = db.SpaceStates.First(d => d.Name == "livre"); // Estado de sala livre
-            var getEventFinishedState = db.EventStates.First(d => d.Name == "encerrado");
-            foreach (var _event in oldEventsOnExihibtion)  // Coloca todos os eventos que o endDate já ocorreu, e que ainda se encontram em exibicao, com o estado encerrado
-            {
-                var getEventRooms = db.RoomMuseums.Include(d => d.Event).Where(d => d.Event.Id == _event.Id).ToList();
-                foreach (var _room in getEventRooms) // coloca todas as salas associadas ao evento nas condicoes acima, com o estado de salas livres
-                {
-                    _room.SumRoomArtPieces = 0;
-                    _room.SpaceState = getRoomFreeState;
-
-                    db.SaveChanges();
-                }
-                _event.SumArtPieces = 0;
-                _event.EventState = getEventFinishedState;
-                db.SaveChanges();
-            }
-            
             var getListFreeRooms = db.RoomMuseums.Where(d => d.SpaceState.Name == getRoomFreeState.Name).ToList(); // Salas com o estado livre
             ViewBag.ListSpaces = new SelectList(getListFreeRooms, "Name", "Name");
             ViewBag.sizeListRooms = getListFreeRooms.Count;
@@ -48,10 +28,10 @@ namespace ManageMuseum.Controllers
         [HttpPost]
         public ActionResult SheduleExhibition(EventViewModel events)
         {
-            
+
             var queryListSpaces = db.RoomMuseums.ToList();
             ViewBag.ListSpaces = new SelectList(queryListSpaces, "Name", "Name");
-           
+
             var rooms = events.SpacesList;
             var listSpaces = new List<RoomMuseum>();
 
@@ -72,14 +52,13 @@ namespace ManageMuseum.Controllers
             }
             db.SaveChanges();
             return Redirect("SheduleExhibition");
-           
-            
         }
         [SpaceManagerAuthorize]
         public ActionResult ShowRequestsList()
         {
             var query = db.Events.Include(d => d.EventState).Include(d => d.EventType).Where(d => d.EventState.Name == "poraprovar").ToList();
             ViewBag.Data = query;
+
             return View();
         }
         [SpaceManagerAuthorize]
@@ -96,8 +75,9 @@ namespace ManageMuseum.Controllers
             
             Event update = db.Events.Include(v => v.EventState).First(d => d.Id == EventIdApprove);
             update.EventState = approvedState;
+
             db.SaveChanges();
-            //FALTA COLOCAR AQUI UMA MENSAGEM DE AVISO QUE O PEDIDO DE EVENTO FOI APROVADO
+
             return Redirect("ShowRequestsList");
         }
         [SpaceManagerAuthorize]
@@ -128,7 +108,9 @@ namespace ManageMuseum.Controllers
 
             Event update = db.Events.Include(v => v.EventState).First(d => d.Id == EventIdReject);
             update.EventState = rejectState;
+
             db.SaveChanges();
+
             return Redirect("ShowRequestsList");
         }
     }
