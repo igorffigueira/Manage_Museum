@@ -240,7 +240,6 @@ D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ExpressiveAnnotations.MvcUnobtrusive.dll
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ExpressiveAnnotations.xml
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ExpressiveAnnotations.MvcUnobtrusive.xml
-D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.Igor_2nd_migrations.resources
 D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ApplicationInsights.config
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\bin\ManageMuseum.dll.config
@@ -293,8 +292,8 @@ C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseu
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.CoreCompileInputs.cache
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.dll
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.pdb
-D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.igor_3rd_migration.resources
 C:\Users\jessi\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.jessicaSecond.resources
 C:\Users\jessi\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.tiago_xx.resources
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.csproj.GenerateResource.Cache
+D:\Users\Figueira\Documents\GitHub\DIS\Projeto\ManageMuseum\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseum\obj\Debug\ManageMuseum.Migrations.tiago_xx.resources
