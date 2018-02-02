@@ -1,0 +1,13 @@
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\bin\Debug\ManageMuseumData.exe.config
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\bin\Debug\ManageMuseumData.exe
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\bin\Debug\ManageMuseumData.pdb
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\bin\Debug\EntityFramework.dll
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\bin\Debug\EntityFramework.xml
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.csproj.CoreCompileInputs.cache
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.exe
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.pdb
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.csprojResolveAssemblyReference.cache
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.Migrations._1st.resources
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.csproj.GenerateResource.Cache

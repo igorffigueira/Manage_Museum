@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5ACF30FC-6BEE-4D60-9A99-8B4DB42B6200}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ManageMuseumData</RootNamespace>
+    <AssemblyName>ManageMuseumData</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builder\EventBuilder.cs" />
+    <Compile Include="Builder\ExpositionEventBuilder.cs" />
+    <Compile Include="Builder\Manager.cs" />
+    <Compile Include="Builder\SocialEventBuilder.cs" />
+    <Compile Include="DataBaseModel\ArtPiece.cs" />
+    <Compile Include="DataBaseModel\ArtPieceState.cs" />
+    <Compile Include="DataBaseModel\DbAccess.cs" />
+    <Compile Include="DataBaseModel\Events.cs" />
+    <Compile Include="DataBaseModel\EventState.cs" />
+    <Compile Include="DataBaseModel\EventType.cs" />
+    <Compile Include="DataBaseModel\OutSideSpace.cs" />
+    <Compile Include="DataBaseModel\Role.cs" />
+    <Compile Include="DataBaseModel\RoomMuseum.cs" />
+    <Compile Include="DataBaseModel\SpaceState.cs" />
+    <Compile Include="DataBaseModel\UserAccount.cs" />
+    <Compile Include="Factory\AArtPiece.cs" />
+    <Compile Include="Factory\ArtPieceFactory.cs" />
+    <Compile Include="Factory\AUser.cs" />
+    <Compile Include="Factory\CreateArtPiece.cs" />
+    <Compile Include="Factory\CreateUser.cs" />
+    <Compile Include="Factory\UserFactory.cs" />
+    <Compile Include="GetData\AData.cs" />
+    <Compile Include="GetData\ArtPiecesData.cs" />
+    <Compile Include="GetData\EventData.cs" />
+    <Compile Include="GetData\RoomMuseumData.cs" />
+    <Compile Include="Migrations\201802012151253_1st.cs" />
+    <Compile Include="Migrations\201802012151253_1st.Designer.cs">
+      <DependentUpon>201802012151253_1st.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201802012151253_1st.resx">
+      <DependentUpon>201802012151253_1st.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

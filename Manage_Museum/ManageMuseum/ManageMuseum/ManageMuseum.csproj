@@ -167,27 +167,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801250429407_tiago_xx.cs" />
-    <Compile Include="Migrations\201801250429407_tiago_xx.Designer.cs">
-      <DependentUpon>201801250429407_tiago_xx.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ArtPiece.cs" />
     <Compile Include="Models\ArtPieceAuthorize.cs" />
-    <Compile Include="Models\ArtPieceState.cs" />
-    <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\EventState.cs" />
-    <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
-    <Compile Include="Models\OurContectDb.cs" />
-    <Compile Include="Models\OutSideSpace.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\RoomMuseum.cs" />
     <Compile Include="Models\SpaceManagerAuthorize.cs" />
-    <Compile Include="Models\SpaceState.cs" />
     <Compile Include="Models\SpaceViewModel.cs" />
-    <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Models\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -263,9 +247,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801250429407_tiago_xx.resx">
-      <DependentUpon>201801250429407_tiago_xx.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\ManageMuseumData\ManageMuseumData.csproj">
+      <Project>{5acf30fc-6bee-4d60-9a99-8b4db42b6200}</Project>
+      <Name>ManageMuseumData</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
