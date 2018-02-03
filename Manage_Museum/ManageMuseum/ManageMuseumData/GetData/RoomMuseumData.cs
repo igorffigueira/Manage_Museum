@@ -30,5 +30,20 @@ namespace ManageMuseumData.GetData
             return db.RoomMuseums.Include(d => d.ArtPieces).Include(d => d.SpaceState).Where(d => d.Event.Id == id).ToList();
         }
 
+        public List<RoomMuseum> GetListRoomsByState(string state)
+        {
+            var getRoomFreeState = db.SpaceStates.First(d => d.Name == state); // Estado de sala livre
+           return db.RoomMuseums.Where(d => d.SpaceState.Name == getRoomFreeState.Name).ToList();
+        }
+
+        public void DetachRoomsFromEvent(int eventId)
+        {
+            var rooms = db.RoomMuseums.Include(d => d.Event).Where(d => d.Event.Id == eventId).ToList();
+            foreach (var item in rooms)
+            {
+                item.Event = null;
+                db.SaveChanges();
+            }
+        }
     }
 }

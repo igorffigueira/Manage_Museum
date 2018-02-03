@@ -11,10 +11,8 @@ namespace ManageMuseumData.Builder
     {
         public void Construct(EventBuilder eventBuilder, List<string> spaces, string name, DateTime starTime, DateTime endDateTime, string description, int user)
         {
-
-            eventBuilder.AddSpace(spaces);
-
             eventBuilder.AddUser(user);
+            eventBuilder.AddSpace(spaces);
             eventBuilder.AddEventState();
             eventBuilder.AddEventType();
             eventBuilder.AddEventDetails(name, starTime, endDateTime, description);

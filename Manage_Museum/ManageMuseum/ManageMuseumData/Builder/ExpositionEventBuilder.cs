@@ -16,11 +16,22 @@ namespace ManageMuseumData.Builder
         public override void AddSpace(List<string> spaces)
         {
             List<RoomMuseum> rooms = new List<RoomMuseum>();
-            var ocupied = db.SpaceStates.Single(s => s.Name == "ocupada");
+            var role = _event.UserAccount.Role.Name;
+            SpaceState State;
+            if (role.Equals("spacemanager"))
+            {
+                State = db.SpaceStates.Single(s => s.Name == "ocupada");
+            }
+            else
+            {
+                State = db.SpaceStates.Single(s => s.Name == "livre");
+
+            }
+           
             foreach (var item in spaces)
             {
                 var aux = db.RoomMuseums.Single(s => s.Name == item);
-                aux.SpaceState = ocupied;
+                aux.SpaceState = State;
                 rooms.Add(aux);
             }
 

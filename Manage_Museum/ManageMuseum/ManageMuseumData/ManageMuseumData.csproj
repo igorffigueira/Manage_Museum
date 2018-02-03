@@ -64,6 +64,7 @@
     <Compile Include="DataBaseModel\RoomMuseum.cs" />
     <Compile Include="DataBaseModel\SpaceState.cs" />
     <Compile Include="DataBaseModel\UserAccount.cs" />
+    <Compile Include="EventManagement\EventManagement.cs" />
     <Compile Include="Factory\AArtPiece.cs" />
     <Compile Include="Factory\ArtPieceFactory.cs" />
     <Compile Include="Factory\AUser.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="GetData\AData.cs" />
     <Compile Include="GetData\ArtPiecesData.cs" />
     <Compile Include="GetData\EventData.cs" />
+    <Compile Include="GetData\OutSideSpaceData.cs" />
     <Compile Include="GetData\RoomMuseumData.cs" />
     <Compile Include="Migrations\201802012151253_1st.cs" />
     <Compile Include="Migrations\201802012151253_1st.Designer.cs">

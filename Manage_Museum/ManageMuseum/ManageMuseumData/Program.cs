@@ -13,7 +13,7 @@ namespace ManageMuseumData
     {
         static void Main(string[] args)
         {
-            //List<string> rooms = new List<string>() { "Sala Funchal", "Sala Câmara de Lobos" };
+            List<string> rooms = new List<string>() { "Sala Funchal", "Sala Câmara de Lobos" };
 
             //Manager man = new Manager();
             //EventBuilder ev = new ExpositionEventBuilder();
@@ -22,11 +22,17 @@ namespace ManageMuseumData
             //var remove = new ArtPiecesData();
 
             //remove.RemoveFromExhibition(1);
-            ArtPiecesData art = new ArtPiecesData();
+            //ArtPiecesData art = new ArtPiecesData();
 
-            art.AddPieceToRoom(1,2,3, "exposicao");
+            //art.AddPieceToRoom(1,2,3, "exposicao");
+            EventData ed = new EventData();
 
+            //ed.RequestEvent(rooms,"sapatinho","sapatos prada",DateTime.Now.AddDays(1), DateTime.Now.AddDays(10),3);
+            //ed.ApproveExhibition(2);
+            ed.ChangeEventState("rejeitado",2);
             Console.ReadKey();
+
+
         }
     }
 }
