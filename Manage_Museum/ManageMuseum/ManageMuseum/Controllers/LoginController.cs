@@ -25,9 +25,6 @@ namespace ManageMuseum.Controllers
             
             if (userData.IsValid(user.UserName,user.Password))
             {
-                //var role = new UserManager().Role(userName, password);
-                //var userId = new UserManager().GetId(userName, password);
-
                 var role = userData.Role(user.UserName, user.Password);
                 var userId = userData.GetId(user.UserName, user.Password);
                 switch (role)

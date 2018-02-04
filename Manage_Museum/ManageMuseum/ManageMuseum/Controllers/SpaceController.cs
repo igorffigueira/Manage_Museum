@@ -15,11 +15,6 @@ namespace ManageMuseum.Controllers
         public ActionResult Map()
         {
             var rooms = roomMuseumData.GetListRoomMuseums();
-            //foreach (var roomCapacity in rooms)
-            //{
-            //    roomCapacity.Id += 8;
-            //}
-            
             ViewBag.RoomMuseums = new SelectList(rooms, "Id", "Id");
             ViewBag.capacity = TempData["capacity"];
             ViewBag.Role = Request.Cookies["Role"].Value;
@@ -31,10 +26,6 @@ namespace ManageMuseum.Controllers
         [HttpPost]
         public ActionResult Map(SpaceViewModel roomMuseum)
         {
-            //var rooms = roomMuseumData.GetListRoomMuseums();
-            
-            //ViewBag.RoomMuseums = new SelectList(rooms, "Id", "Id");
-            //roomMuseum.RoomId -= 8;
             var roomId = roomMuseum.RoomId;
             var roomCapacity = roomMuseum.MaxRoomArtPieces;
 

@@ -37,7 +37,7 @@
                 }
                 <div class="form-group">
                     <label class="control-label col-md-2">Nome: </label>
-                    @*@Html.LabelFor(model => model.FirstName, htmlAttributes: new {@class = "control-label col-md-2"})*@
+                    
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.FirstName, "", new {@class = "text-danger"})
@@ -46,7 +46,7 @@
 
                 <div class="form-group">
                     <label class="control-label col-md-2">Apelido: </label>
-                    @*@Html.LabelFor(model => model.LastName, htmlAttributes: new {@class = "control-label col-md-2"})*@
+                    
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.LastName, "", new {@class = "text-danger"})
@@ -70,7 +70,7 @@
 
                 <div class="form-group">
                     <label class="control-label col-md-2">Password: </label>
-                    @*@Html.LabelFor(model => model.Password, htmlAttributes: new {@class = "control-label col-md-2"})*@
+                    
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@class = "form-control"}})
                         @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
@@ -79,7 +79,7 @@
 
                 <div class="form-group">
                     <label class = "control-label col-md-2">Confirmar Password: </label>
-                    @*@Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
@@ -98,7 +98,8 @@
 <div>
     <hr class="hrStyle">
     <p>
-        @*@Html.ActionLink(linkText: "Back to ##########", actionName: "SheduleExhibition", controllerName: "ExhibitionShedule")*@
+       
+        @Html.ActionLink(linkText: "Voltar para a Página inicial", actionName: "SheduleEvent", controllerName: "SheduleEvent")
     </p><br />
 </div>
 </body>

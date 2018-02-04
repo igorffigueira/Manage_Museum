@@ -10,3 +10,4 @@ C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseu
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.csproj.CoreCompileInputs.cache
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.exe
 C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.pdb
+C:\Users\topog\source\repos\Manage_Museum\Manage_Museum\ManageMuseum\ManageMuseumData\obj\Debug\ManageMuseumData.csprojResolveAssemblyReference.cache

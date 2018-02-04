@@ -16,8 +16,6 @@ namespace ManageMuseum.Controllers
         private UserData userData = new UserData();
         public ActionResult Register()
         {
-            //var roles = db.Roles.ToList();
-            //ViewBag.Roles = new SelectList(roles,"Name","Name");
             var roles = userData.GetRoles();
             ViewBag.Roles = new SelectList(roles, "Name", "Name");
 
@@ -28,18 +26,8 @@ namespace ManageMuseum.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewModel userAccount)
         {
-            //var roles = db.Roles.ToList();
-            //ViewBag.Roles = new SelectList(roles, "Name", "Name");
             var roles = userData.GetRoles();
             ViewBag.Roles = new SelectList(roles, "Name", "Name");
-
-            //var queryRole = db.Roles.First(s => s.Name == userAccount.Role);
-            //var userAccountInsert = new UserAccount(){FirstName = userAccount.FirstName,LastName = userAccount.LastName,Password = userAccount.Password,Username = userAccount.Username,Role = queryRole};
-
-            //db.UserAccounts.Add(userAccountInsert);
-            //db.SaveChanges();
-
-
             userData.RegisterUser(userAccount.FirstName,userAccount.LastName,userAccount.Role,userAccount.Username,userAccount.Password);
             return Redirect("Register");
         }
