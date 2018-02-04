@@ -1,4 +1,5 @@
-﻿@using ManageMuseumData.DataBaseModel
+﻿@using ManageMuseum.Models
+
 @{
     ViewBag.Title = "SelectRoomToAttachArtPiece";
     Layout = "~/Views/Shared/_ArtPieceManegerSharedLayout.cshtml";
@@ -38,7 +39,7 @@
                 <th> Número de peças na sala:</th>
                 <th> Piso: </th>
             </tr>
-            @foreach (var item in (List<RoomMuseum>)ViewBag.RoomsExhibition)
+            @foreach (var item in (List<RoomMuseumViewModel>)ViewBag.RoomsExhibition)
             {
                 if (item.SumRoomArtPieces >= item.MaxRoomArtPieces)
                 {

@@ -56,10 +56,12 @@ namespace ManageMuseum.Controllers
             //    item.Event = newEvent;
             //}
             //db.SaveChanges();
+            events.EventType = "exposicao";
             var queryListSpaces = roomData.GetListRoomsByState("livre");
             ViewBag.ListSpaces = new SelectList(queryListSpaces, "Name", "Name");
+
             var userId = Int32.Parse(Request.Cookies["UserId"].Value);
-            eventData.RequestEvent(events.SpacesList,events.Name,events.Description,events.StartDate,events.EnDate,userId);
+            eventData.RequestEvent(events.SpacesList,events.Name,events.EventType,events.Description,events.StartDate,events.EnDate,userId);
             
             return Redirect("SheduleExhibition");
         }

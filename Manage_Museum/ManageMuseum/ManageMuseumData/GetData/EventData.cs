@@ -14,6 +14,8 @@ namespace ManageMuseumData.GetData
       
         private RoomMuseumData roomData = new RoomMuseumData();
         private OutSideSpaceData outData = new OutSideSpaceData();
+        private UserData userData = new UserData();
+
         public Events GetEvent(RoomMuseum room)
         {
             var eventData = db.Events.First(d => d.Id == room.Event.Id);
@@ -37,8 +39,19 @@ namespace ManageMuseumData.GetData
         {
             return db.Events.Include(d => d.EventState).Include(d => d.EventType).Where(d => d.EventState.Name == state).ToList();
         }
+
+        public EventState GetEventState(string state)
+        {
+            return db.EventStates.Single(s => s.Name == state);
+        }
+
+        public EventType GetEventType(string type)
+        {
+            return db.EventTypes.Single(s => s.Name == type);
+        }
+
         //requisitar eventos do tipo exposição
-        public void RequestEvent(List<string> rooms,string eventName,string eventDescription, DateTime startDate,DateTime endDate,int userId)
+        public void RequestEvent(List<string> rooms,string eventName,string eventType,string eventDescription, DateTime startDate,DateTime endDate,int userId)
         {
 
             //var listSpaces = new List<RoomMuseum>();
@@ -59,10 +72,26 @@ namespace ManageMuseumData.GetData
             //    item.Event = newEvent;
             //}
             //db.SaveChanges();
-
             Manager man = new Manager();
-            EventBuilder ev = new ExpositionEventBuilder();
-            man.Construct(ev,rooms,eventName,startDate,endDate,eventDescription,userId);
+            switch (eventType)
+            {
+                case "exposicao":
+                {
+                    EventBuilder ev = new ExpositionEventBuilder();
+                    man.Construct(ev, rooms, eventName, startDate, endDate, eventDescription, userId);
+                        break;
+                }
+                case "social":
+                {
+                    EventBuilder ev = new SocialEventBuilder();
+                    man.Construct(ev, rooms, eventName, startDate, endDate, eventDescription, userId);
+                        break;
+                }
+            }
+
+          
+            
+           
         }
 
         public void ApproveExhibition(int eventId)
@@ -114,6 +143,22 @@ namespace ManageMuseumData.GetData
             }
             db.SaveChanges();
         }
-        
+
+        public List<EventType> GetListEventTypes()
+        {
+            return db.EventTypes.ToList();
+            
+        }
+
+        public List<Events> GetEventsList(int userId, string eventState, string eventType)
+        {
+            var getEventState = GetEventState(eventState);
+            var getEventType = GetEventType(eventType);
+            var getUserAccout = userData.GetUserAccountBy(userId);
+            var eventsList = db.Events.Include(d => d.UserAccount).Include(d => d.EventType).Include(d => d.EventState).Where(d => d.UserAccount.Id ==getUserAccout.Id && d.EventType.Name == getEventType.Name && d.EventState.Name == getEventState.Name).ToList();
+            return eventsList;
+
+        }
+
     }
 }

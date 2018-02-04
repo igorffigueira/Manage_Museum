@@ -76,9 +76,10 @@
     <Compile Include="GetData\EventData.cs" />
     <Compile Include="GetData\OutSideSpaceData.cs" />
     <Compile Include="GetData\RoomMuseumData.cs" />
-    <Compile Include="Migrations\201802012151253_1st.cs" />
-    <Compile Include="Migrations\201802012151253_1st.Designer.cs">
-      <DependentUpon>201802012151253_1st.cs</DependentUpon>
+    <Compile Include="GetData\UserData.cs" />
+    <Compile Include="Migrations\201802032346395_1st.cs" />
+    <Compile Include="Migrations\201802032346395_1st.Designer.cs">
+      <DependentUpon>201802032346395_1st.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -88,10 +89,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802012151253_1st.resx">
-      <DependentUpon>201802012151253_1st.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802032346395_1st.resx">
+      <DependentUpon>201802032346395_1st.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

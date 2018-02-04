@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ManageMuseumData.Builder;
 using ManageMuseumData.DataBaseModel;
+using ManageMuseumData.Factory;
 using ManageMuseumData.GetData;
 
 namespace ManageMuseumData
@@ -13,7 +14,7 @@ namespace ManageMuseumData
     {
         static void Main(string[] args)
         {
-            List<string> rooms = new List<string>() { "Sala Funchal", "Sala Câmara de Lobos" };
+           // List<string> rooms = new List<string>() { "Sala Funchal", "Sala Câmara de Lobos" };
 
             //Manager man = new Manager();
             //EventBuilder ev = new ExpositionEventBuilder();
@@ -25,12 +26,20 @@ namespace ManageMuseumData
             //ArtPiecesData art = new ArtPiecesData();
 
             //art.AddPieceToRoom(1,2,3, "exposicao");
-            EventData ed = new EventData();
+            //EventData ed = new EventData();
 
             //ed.RequestEvent(rooms,"sapatinho","sapatos prada",DateTime.Now.AddDays(1), DateTime.Now.AddDays(10),3);
             //ed.ApproveExhibition(2);
-            ed.ChangeEventState("rejeitado",2);
-            Console.ReadKey();
+            //ed.ChangeEventState("rejeitado",2);
+
+            //UserFactory factory = new CreateUser();
+
+            //factory.createUser("Ruben","França","grego","artpiecemanager","rFrança");
+
+            //RoomMuseumData rm = new RoomMuseumData();
+
+            //rm.ChanceRoomCapacity(1,20);
+            //Console.ReadKey();
 
 
         }

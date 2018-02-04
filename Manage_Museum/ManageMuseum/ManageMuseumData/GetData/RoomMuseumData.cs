@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace ManageMuseumData.GetData
         public  RoomMuseum GetRoom(ArtPiece artPiece)
         {
 
-            var roomData = db.RoomMuseums.Include(d=>d.Event).First(v => v.Id == artPiece.RoomMuseum.Id);
+            var roomData = db.RoomMuseums.Include(d=>d.ArtPieces).Include(d=>d.Event).First(v => v.Id == artPiece.RoomMuseum.Id);
             return roomData;
         }
 
@@ -22,12 +23,25 @@ namespace ManageMuseumData.GetData
         {
 
            
-            return db.RoomMuseums.Include(d => d.ArtPieces).Include(d => d.SpaceState).First(d => d.Id == roomId); 
+            return db.RoomMuseums.Include(d => d.ArtPieces).Include(d => d.SpaceState).Single(d => d.Id == roomId); 
+        }
+
+        public void ChanceRoomCapacity(int roomId,int capacity)
+        {
+            var room = GetRoomById(roomId);
+            room.MaxRoomArtPieces = capacity;
+            db.RoomMuseums.AddOrUpdate(room);
+            db.SaveChanges();
         }
 
         public List<RoomMuseum> GetListRoomByEventId(int id)
         {
             return db.RoomMuseums.Include(d => d.ArtPieces).Include(d => d.SpaceState).Where(d => d.Event.Id == id).ToList();
+        }
+
+        public List<RoomMuseum> GetListRoomMuseums()
+        {
+            return db.RoomMuseums.ToList();
         }
 
         public List<RoomMuseum> GetListRoomsByState(string state)

@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ManageMuseum.Models;
+using ManageMuseumData.GetData;
 using Microsoft.Ajax.Utilities;
 
 namespace ManageMuseum.Controllers
 {
     public class LoginController : Controller
     {
+        private UserData userData = new UserData();
         // GET: Login
         public ActionResult ConfirmLogin()
         {
@@ -17,16 +19,17 @@ namespace ManageMuseum.Controllers
         }
 
         [HttpPost]
-        public ActionResult ConfirmLogin(UserAccount user)
+        public ActionResult ConfirmLogin(UserModelView user)
         {
-            string userName = user.Username;
-            string password = user.Password;
             
-            if (new UserManager().IsValid(userName, password))
+            
+            if (userData.IsValid(user.UserName,user.Password))
             {
-                var role = new UserManager().Role(userName, password);
-                var userId = new UserManager().GetId(userName, password);
-                
+                //var role = new UserManager().Role(userName, password);
+                //var userId = new UserManager().GetId(userName, password);
+
+                var role = userData.Role(user.UserName, user.Password);
+                var userId = userData.GetId(user.UserName, user.Password);
                 switch (role)
                 {
                     case "spacemanager":

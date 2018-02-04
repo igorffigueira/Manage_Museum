@@ -168,11 +168,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArtPieceAuthorize.cs" />
+    <Compile Include="Models\ArtPieceModel.cs" />
     <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\RoomMuseumViewModel.cs" />
     <Compile Include="Models\SpaceManagerAuthorize.cs" />
     <Compile Include="Models\SpaceViewModel.cs" />
-    <Compile Include="Models\UserManager.cs" />
+    <Compile Include="Models\UserModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

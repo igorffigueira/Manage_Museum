@@ -44,7 +44,7 @@ namespace ManageMuseum.Controllers
         }
         [ArtPieceAuthorize]
         [HttpPost]
-        public ActionResult InsertArtPiece(ArtPiece artpiece)
+        public ActionResult InsertArtPiece(ArtPieceModel artpiece)
         {
             //var estadoPeca = db.ArtPieceStates.Include(d => d.ArtPieces).First(d => d.Name == "armazem");
             artpiece.ArtPieceState = artData.GetArtPieceState("armazem");
@@ -113,7 +113,20 @@ namespace ManageMuseum.Controllers
 
             ViewBag.ExhibitionSelected = eventData.GetEventById(getEventId);
             ViewBag.PieceSelected = artData.GetPieceByID(getPieceId);
-            ViewBag.RoomsExhibition = roomData.GetListRoomByEventId(getEventId);
+
+            var roomList = new List<RoomMuseumViewModel>();
+            foreach (var item in roomData.GetListRoomByEventId(getEventId))
+            {
+                RoomMuseumViewModel room = new RoomMuseumViewModel();
+                room.Id = item.Id;
+                room.Floor = item.Floor;
+                room.Name = item.Name;
+                room.SumRoomArtPieces = item.SumRoomArtPieces;
+                room.MaxRoomArtPieces = item.MaxRoomArtPieces;
+                roomList.Add(room);
+
+            }
+            ViewBag.RoomsExhibition = roomList;
             return View();
         }
         [ArtPieceAuthorize]
