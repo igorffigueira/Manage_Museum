@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ManageMuseumData.Factory
 {
+    /// <summary>
+    /// classe abstrata das peças de arte
+    /// </summary>
     public abstract class AArtPiece
     {
         [Key]

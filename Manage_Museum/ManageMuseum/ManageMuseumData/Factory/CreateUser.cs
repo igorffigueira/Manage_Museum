@@ -10,6 +10,15 @@ namespace ManageMuseumData.Factory
     class CreateUser : UserFactory
     {
         private DbAccess db = new DbAccess();
+
+        /// <summary>
+        /// metodo resposavel pela a criação de utilizadores
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="password"></param>
+        /// <param name="Role"></param>
+        /// <param name="username"></param>
         public override void createUser(string firstName, string lastName, string password, string Role, string username)
         {
             var role = db.Roles.Single(s => s.Name == Role);

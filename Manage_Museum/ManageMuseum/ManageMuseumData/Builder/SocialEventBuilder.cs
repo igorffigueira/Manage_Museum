@@ -12,7 +12,10 @@ namespace ManageMuseumData.Builder
         private DbAccess db = new DbAccess();
 
 
-
+        /// <summary>
+        /// adiciona os espaços ao evento recebendo uma lista de espaços  exteriores
+        /// </summary>
+        /// <param name="spaces"></param>
         public override void AddSpace(List<string> spaces)
         {
             List<OutSideSpace> rooms = new List<OutSideSpace>();
@@ -27,14 +30,19 @@ namespace ManageMuseumData.Builder
 
             _event.OutSideSpaces = rooms;
         }
-
+        /// <summary>
+        /// addiciona aos eventos o responsavel por a criação desse evento
+        /// </summary>
+        /// <param name="user"></param>
         public override void AddUser(int user)
         {
             var uu = db.UserAccounts.Include("Role").Single(s => s.Id == user);
 
             _event.UserAccount = uu;
         }
-
+        /// <summary>
+        /// Define o estado do evento consoante o papel do utilizador
+        /// </summary>
         public override void AddEventState()
         {
 
@@ -43,13 +51,21 @@ namespace ManageMuseumData.Builder
 
 
         }
-
+        /// <summary>
+        /// define o tipo de envento 
+        /// </summary>
         public override void AddEventType()
         {
             var type = db.EventTypes.Single(s => s.Name == "social");
             _event.EventType = type;
         }
-
+        /// <summary>
+        /// adiciona os detalhes do evento, tais como nome, data de inicio e fim e a descrição desse evento
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="starTime"></param>
+        /// <param name="endDateTime"></param>
+        /// <param name="description"></param>
         public override void AddEventDetails(string name, DateTime starTime, DateTime endDateTime, string description)
         {
             _event.Name = name;
@@ -59,7 +75,9 @@ namespace ManageMuseumData.Builder
 
         }
 
-
+        /// <summary>
+        /// guarda o evento na base de dados
+        /// </summary>
         public override void Save()
         {
             db.Events.Add(_event);

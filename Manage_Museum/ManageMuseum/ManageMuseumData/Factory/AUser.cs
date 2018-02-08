@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ManageMuseumData.Factory
 {
+    /// <summary>
+    /// classe abstratacdos users
+    /// </summary>
     public abstract class AUser
     {
         [Key]

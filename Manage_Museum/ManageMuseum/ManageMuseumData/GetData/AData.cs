@@ -7,6 +7,9 @@ using ManageMuseumData.DataBaseModel;
 
 namespace ManageMuseumData.GetData
 {
+    /// <summary>
+    /// classe abstrata responsável pela a logica da aplicação
+    /// </summary>
     public abstract class AData
     {
       

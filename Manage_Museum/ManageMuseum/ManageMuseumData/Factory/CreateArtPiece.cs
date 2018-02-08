@@ -10,6 +10,15 @@ namespace ManageMuseumData.Factory
     public class CreateArtPiece : ArtPieceFactory
     {
         private DbAccess db = new DbAccess();
+
+        /// <summary>
+        /// metodo responsavel pela criação das peças
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
+        /// <param name="dimension"></param>
+        /// <param name="author"></param>
+        /// <param name="year"></param>
         public override void createArtPiece(string name, string description, double dimension, string author, DateTime year)
         {
             var artState = db.ArtPieceStates.Single(d => d.Name == "armazem");
